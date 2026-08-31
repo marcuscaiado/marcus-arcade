@@ -1,3 +1,5 @@
+import './style.css';
+
 // Marcus Arcade Interactive Engine
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('game-search');
