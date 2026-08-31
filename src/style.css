@@ -154,6 +154,84 @@ body {
   box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
 }
 
+/* Daily Releases Showcase (Top Pop-up) */
+.daily-releases-deck {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(255, 0, 127, 0.08));
+  border: 1px solid rgba(0, 245, 255, 0.35);
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin-bottom: 34px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 245, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.daily-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #ff007f;
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.daily-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.daily-mini-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.daily-mini-card:hover {
+  border-color: #00f5ff;
+  transform: translateY(-3px);
+  background: rgba(0, 245, 255, 0.06);
+  box-shadow: 0 8px 20px rgba(0, 245, 255, 0.2);
+}
+
+.daily-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.daily-mini-icon {
+  font-size: 26px;
+}
+
+.daily-mini-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.daily-mini-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.daily-url {
+  font-size: 10px;
+  font-family: monospace;
+  color: #00f5ff;
+  opacity: 0.8;
+  word-break: break-all;
+}
+
 /* Games Grid */
 .games-grid {
   display: grid;
