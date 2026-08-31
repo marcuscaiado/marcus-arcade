@@ -118,93 +118,107 @@
 
     // 4. Show Cyberpunk Leaderboard Modal
     show: function(config) {
-      const { gameId, score, onRestart, scoreUnit = 'PTS' } = config;
-      const scores = this.submitScore(gameId, score);
-      const playerTag = this.getPlayerTag();
+      try {
+        const { gameId, score = 0, onRestart, scoreUnit = 'PTS' } = config || {};
+        const scores = this.submitScore(gameId, score);
+        const playerTag = this.getPlayerTag();
 
-      const playerRank = scores.findIndex(s => s.name === playerTag) + 1;
-      const rankDisplay = playerRank > 0 ? `#${playerRank}` : `TOP 15`;
-      const percentile = playerRank > 0 ? Math.max(1, Math.round((playerRank / Math.max(scores.length, 1)) * 100)) : 100;
+        const playerRank = scores.findIndex(s => s.name === playerTag) + 1;
+        const rankDisplay = playerRank > 0 ? `#${playerRank}` : `TOP 15`;
+        const percentile = playerRank > 0 ? Math.max(1, Math.round((playerRank / Math.max(scores.length, 1)) * 100)) : 100;
 
-      let rivalText = '🏆 YOU ARE THE WORLD #1 CHAMPION!';
-      if (playerRank > 1) {
-        const rival = scores[playerRank - 2];
-        const diff = rival.score - score;
-        rivalText = `🎯 Beat <b>${rival.name}</b> (${rival.score} ${scoreUnit}) — only <b>+${diff}</b> to take #${playerRank - 1}!`;
-      } else if (playerRank === 1 && scores.length > 1) {
-        const second = scores[1];
-        rivalText = `🔥 Reigning #1! Leading by <b>+${score - second.score} ${scoreUnit}</b> over <b>${second.name}</b>!`;
-      }
+        let rivalText = '🏆 YOU ARE THE WORLD #1 CHAMPION!';
+        if (playerRank > 1) {
+          const rival = scores[playerRank - 2];
+          const diff = rival.score - score;
+          rivalText = `🎯 Beat <b>${rival.name}</b> (${rival.score} ${scoreUnit}) — only <b>+${diff}</b> to take #${playerRank - 1}!`;
+        } else if (playerRank === 1 && scores.length > 1) {
+          const second = scores[1];
+          rivalText = `🔥 Reigning #1! Leading by <b>+${score - second.score} ${scoreUnit}</b> over <b>${second.name}</b>!`;
+        }
 
-      let modalOverlay = document.getElementById('arcade-global-lb-modal');
-      if (!modalOverlay) {
-        modalOverlay = document.createElement('div');
-        modalOverlay.id = 'arcade-global-lb-modal';
-        this._injectStyles();
-        document.body.appendChild(modalOverlay);
-      }
+        let modalOverlay = document.getElementById('arcade-global-lb-modal');
+        if (!modalOverlay) {
+          modalOverlay = document.createElement('div');
+          modalOverlay.id = 'arcade-global-lb-modal';
+          this._injectStyles();
+          document.body.appendChild(modalOverlay);
+        }
 
-      let leaderboardRowsHtml = '';
-      if (scores.length === 0) {
-        leaderboardRowsHtml = `<div style="text-align:center; padding:16px; color:#94a3b8; font-size:12px;">👑 NO SCORES YET — YOU SET THE FIRST RECORD!</div>`;
-      } else {
-        leaderboardRowsHtml = scores.slice(0, 6).map((s, idx) => {
-          const rankMedal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `${idx + 1}.`));
-          const youClass = s.isYou ? 'lb-row-you' : '';
-          const youTag = s.isYou ? ' <span class="lb-you-badge">YOU</span>' : '';
-          return `
-            <div class="lb-row ${youClass}">
-              <div class="lb-rank">${rankMedal}</div>
-              <div class="lb-name">${s.name}${youTag}</div>
-              <div class="lb-score">${s.score.toLocaleString()} <span style="font-size:9px; color:#888;">${scoreUnit}</span></div>
+        let leaderboardRowsHtml = '';
+        if (scores.length === 0) {
+          leaderboardRowsHtml = `<div style="text-align:center; padding:16px; color:#94a3b8; font-size:12px;">👑 NO SCORES YET — YOU SET THE FIRST RECORD!</div>`;
+        } else {
+          leaderboardRowsHtml = scores.slice(0, 6).map((s, idx) => {
+            const rankMedal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `${idx + 1}.`));
+            const youClass = s.isYou ? 'lb-row-you' : '';
+            const youTag = s.isYou ? ' <span class="lb-you-badge">YOU</span>' : '';
+            return `
+              <div class="lb-row ${youClass}">
+                <div class="lb-rank">${rankMedal}</div>
+                <div class="lb-name">${s.name}${youTag}</div>
+                <div class="lb-score">${s.score.toLocaleString()} <span style="font-size:9px; color:#888;">${scoreUnit}</span></div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        modalOverlay.innerHTML = `
+          <div class="lb-box">
+            <div class="lb-header">
+              <h2>💥 ROUND COMPLETE! 💥</h2>
+              <div class="lb-your-score">${score.toLocaleString()} <span style="font-size:16px; color:#00f5ff;">${scoreUnit}</span></div>
             </div>
-          `;
-        }).join('');
+
+            <div class="lb-tag-row">
+              <span style="font-size:12px; color:#aaa;">PILOT TAG:</span>
+              <input type="text" id="lb-tag-input" value="${playerTag}" maxlength="18" spellcheck="false" />
+              <button id="lb-save-tag-btn">SAVE</button>
+            </div>
+
+            <div class="lb-rank-banner">
+              <div class="lb-rank-badge">👑 WORLD RANK: <span style="color:#ff007f;">${rankDisplay}</span> (TOP ${percentile}%)</div>
+              <div class="lb-rival-text">${rivalText}</div>
+            </div>
+
+            <div class="lb-table">
+              <div class="lb-table-title">🌍 REAL LIVE GLOBAL LEADERBOARD</div>
+              ${leaderboardRowsHtml}
+            </div>
+
+            <div class="lb-actions">
+              <button id="lb-play-again-btn" class="lb-btn lb-btn-primary">PLAY AGAIN 🔄</button>
+              <a href="https://marcuscaiado.github.io/marcus-arcade/" class="lb-btn lb-btn-secondary">ARCADE HUB 🕹️</a>
+            </div>
+          </div>
+        `;
+
+        modalOverlay.style.display = 'flex';
+
+        const restartBtn = document.getElementById('lb-play-again-btn');
+        if (restartBtn) {
+          restartBtn.onclick = (e) => {
+            e.stopPropagation();
+            modalOverlay.style.display = 'none';
+            if (typeof onRestart === 'function') onRestart();
+          };
+        }
+
+        const saveTagBtn = document.getElementById('lb-save-tag-btn');
+        if (saveTagBtn) {
+          saveTagBtn.onclick = (e) => {
+            e.stopPropagation();
+            const input = document.getElementById('lb-tag-input');
+            const newTag = ArcadeLeaderboard.setPlayerTag(input.value);
+            input.value = newTag;
+            ArcadeLeaderboard.show(config);
+          };
+        }
+      } catch(err) {
+        console.error('Leaderboard modal error fallback:', err);
+        const fallbackModal = document.getElementById('modal') || document.getElementById('gameover-modal') || document.getElementById('gameoverModal');
+        if (fallbackModal) fallbackModal.style.display = 'flex';
       }
-
-      modalOverlay.innerHTML = `
-        <div class="lb-box">
-          <div class="lb-header">
-            <h2>💥 ROUND COMPLETE! 💥</h2>
-            <div class="lb-your-score">${score.toLocaleString()} <span style="font-size:16px; color:#00f5ff;">${scoreUnit}</span></div>
-          </div>
-
-          <div class="lb-tag-row">
-            <span style="font-size:12px; color:#aaa;">PILOT TAG:</span>
-            <input type="text" id="lb-tag-input" value="${playerTag}" maxlength="18" spellcheck="false" />
-            <button id="lb-save-tag-btn">SAVE</button>
-          </div>
-
-          <div class="lb-rank-banner">
-            <div class="lb-rank-badge">👑 WORLD RANK: <span style="color:#ff007f;">${rankDisplay}</span> (TOP ${percentile}%)</div>
-            <div class="lb-rival-text">${rivalText}</div>
-          </div>
-
-          <div class="lb-table">
-            <div class="lb-table-title">🌍 REAL LIVE GLOBAL LEADERBOARD</div>
-            ${leaderboardRowsHtml}
-          </div>
-
-          <div class="lb-actions">
-            <button id="lb-play-again-btn" class="lb-btn lb-btn-primary">PLAY AGAIN 🔄</button>
-            <a href="https://marcuscaiado.github.io/marcus-arcade/" class="lb-btn lb-btn-secondary">ARCADE HUB 🕹️</a>
-          </div>
-        </div>
-      `;
-
-      modalOverlay.style.display = 'flex';
-
-      document.getElementById('lb-play-again-btn').onclick = () => {
-        modalOverlay.style.display = 'none';
-        if (onRestart) onRestart();
-      };
-
-      document.getElementById('lb-save-tag-btn').onclick = () => {
-        const input = document.getElementById('lb-tag-input');
-        const newTag = ArcadeLeaderboard.setPlayerTag(input.value);
-        input.value = newTag;
-        ArcadeLeaderboard.show(config);
-      };
     },
 
     hide: function() {
