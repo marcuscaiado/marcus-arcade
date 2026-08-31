@@ -474,6 +474,73 @@ body {
   color: #00f5ff;
 }
 
+/* 3-Letter Arcade Pilot Badge */
+.pilot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  border-radius: 999px;
+  padding: 6px 14px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.pilot-badge:hover {
+  background: rgba(0, 245, 255, 0.18);
+  border-color: #00f5ff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+}
+
+.modal-pilot-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed rgba(0, 245, 255, 0.35);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+}
+
+#modal-pilot-input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #00f5ff;
+  border-radius: 6px;
+  color: #00f5ff;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 900;
+  width: 60px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  outline: none;
+  padding: 4px;
+}
+
+#modal-pilot-save-btn {
+  background: #00f5ff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+#modal-pilot-save-btn:hover {
+  background: #ff007f;
+  color: #fff;
+}
+
 @media (max-width: 640px) {
   .app-container { padding: 20px 12px 60px; }
   .games-grid { grid-template-columns: 1fr; }

@@ -14,7 +14,14 @@
       
       <!-- Arcade Header -->
       <header class="arcade-header">
-        <div class="header-badge">✨ 17 ORIGINAL PLAYABLE WEB GAMES ✨</div>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
+          <div class="header-badge">✨ 17 ORIGINAL PLAYABLE WEB GAMES ✨</div>
+          <button class="pilot-badge" id="hub-pilot-btn" title="Click to customize your 3-letter Arcade Nickname (e.g. MRC, ACE, NEO)">
+            <span style="font-size: 11px; opacity: 0.8;">👾 PILOT:</span>
+            <span id="hub-pilot-tag" style="color: #00f5ff; font-weight: 900; letter-spacing: 2px;">MRC</span>
+            <span style="font-size: 11px;">✏️</span>
+          </button>
+        </div>
         <h1 class="arcade-title">MARCUS ARCADE</h1>
         <p class="arcade-subtitle">Zero-install, instant-play 3D & 2D web games built with Three.js, Canvas & Web Audio</p>
         
@@ -391,6 +398,13 @@
           <button id="close-hub-lb" class="hub-modal-close">&times;</button>
         </div>
         <p class="hub-modal-subtitle">Live real champions across Marcus Web Arcade (Play to claim your crown!)</p>
+        
+        <div class="modal-pilot-edit">
+          <span style="font-size:12px; color:#aaa;">👾 YOUR 3-LETTER NICKNAME:</span>
+          <input type="text" id="modal-pilot-input" maxlength="3" value="MRC" autocomplete="off" spellcheck="false" />
+          <button id="modal-pilot-save-btn">SET INITIALS</button>
+        </div>
+
         <div class="hub-lb-grid" id="hub-lb-grid">
           <!-- Dynamically populated from live cloud DB -->
         </div>

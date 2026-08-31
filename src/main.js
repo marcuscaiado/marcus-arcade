@@ -81,14 +81,55 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'neon-archery-master', name: 'Neon Archery Master', icon: '🎯', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-archery-master/' }
   ];
 
-  const hubLbModal = document.getElementById('hub-lb-modal');
-  const hubLbGrid = document.getElementById('hub-lb-grid');
-  const openHubLbBtn = document.getElementById('open-hub-lb');
-  const closeHubLbBtn = document.getElementById('close-hub-lb');
-  const hubLbOkBtn = document.getElementById('hub-lb-ok-btn');
+  // 3-Letter Arcade Pilot Nickname Management
+  function getPilotTag() {
+    let tag = localStorage.getItem('arcade_player_tag') || 'MRC';
+    return tag.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0, 3) || 'MRC';
+  }
+
+  function setPilotTag(newTag) {
+    let clean = (newTag || '').replace(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0, 3);
+    if (!clean) clean = 'MRC';
+    while (clean.length < 3) clean += 'X';
+    localStorage.setItem('arcade_player_tag', clean);
+    updatePilotDisplays();
+    renderWorldRecords();
+    return clean;
+  }
+
+  function updatePilotDisplays() {
+    const tag = getPilotTag();
+    const hubTagEl = document.getElementById('hub-pilot-tag');
+    const modalInputEl = document.getElementById('modal-pilot-input');
+    if (hubTagEl) hubTagEl.textContent = tag;
+    if (modalInputEl) modalInputEl.value = tag;
+  }
+
+  updatePilotDisplays();
+
+  const hubPilotBtn = document.getElementById('hub-pilot-btn');
+  if (hubPilotBtn) {
+    hubPilotBtn.addEventListener('click', () => {
+      const current = getPilotTag();
+      const entered = prompt('Enter your 3-Letter Arcade Initials (e.g. MRC, ACE, NEO, VIP):', current);
+      if (entered) setPilotTag(entered);
+    });
+  }
+
+  const modalPilotSaveBtn = document.getElementById('modal-pilot-save-btn');
+  const modalPilotInput = document.getElementById('modal-pilot-input');
+  if (modalPilotSaveBtn && modalPilotInput) {
+    modalPilotSaveBtn.addEventListener('click', () => {
+      setPilotTag(modalPilotInput.value);
+    });
+    modalPilotInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') setPilotTag(modalPilotInput.value);
+    });
+  }
 
   async function renderWorldRecords() {
     if (!hubLbGrid) return;
+    updatePilotDisplays();
     hubLbGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:20px; color:#00f5ff;">⚡ Syncing live cloud records...</div>`;
 
     let cloudData = {};
@@ -109,8 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
       allScores.sort((a, b) => b.score - a.score);
 
       const champ = allScores[0];
+      let champTag = champ ? (String(champ.name).replace(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0, 3) || 'PIL') : '';
       const champHtml = champ 
-        ? `<div class="hub-lb-champ">🥇 ${champ.name} • <b>${champ.score.toLocaleString()} ${game.unit}</b></div>`
+        ? `<div class="hub-lb-champ">🥇 <span style="background:rgba(0,245,255,0.15); border:1px solid #00f5ff; padding:2px 6px; border-radius:4px; font-weight:900; letter-spacing:1px;">${champTag}</span> • <b>${champ.score.toLocaleString()} ${game.unit}</b></div>`
         : `<div class="hub-lb-champ" style="color:#ff007f; font-size:11px;">👑 UNCLAIMED • <a href="${game.url}" target="_blank" style="color:#00f5ff; text-decoration:underline;">PLAY TO BE #1!</a></div>`;
 
       html += `
