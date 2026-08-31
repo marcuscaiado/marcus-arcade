@@ -368,7 +368,115 @@ body {
   margin-top: 8px;
 }
 
+/* World Records Hub Modal */
+.lb-hub-btn {
+  background: linear-gradient(135deg, rgba(255, 159, 67, 0.2), rgba(255, 0, 127, 0.2));
+  border-color: #ff9f43 !important;
+  color: #ff9f43 !important;
+  font-weight: 800;
+  box-shadow: 0 0 15px rgba(255, 159, 67, 0.3);
+}
+
+.lb-hub-btn:hover {
+  background: linear-gradient(135deg, #ff9f43, #ff007f) !important;
+  color: #000 !important;
+  box-shadow: 0 0 25px rgba(255, 159, 67, 0.6);
+}
+
+.hub-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 16, 0.92);
+  backdrop-filter: blur(16px);
+  z-index: 99999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  animation: hubModalFade 0.25s ease-out;
+}
+
+@keyframes hubModalFade {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.hub-modal-box {
+  background: linear-gradient(135deg, rgba(22, 28, 56, 0.96), rgba(8, 11, 26, 0.98));
+  border: 2px solid rgba(255, 159, 67, 0.4);
+  border-radius: 24px;
+  padding: 28px 30px;
+  max-width: 580px;
+  width: 100%;
+  box-shadow: 0 0 50px rgba(255, 159, 67, 0.25), 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.hub-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hub-modal-header h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #ff9f43;
+  text-shadow: 0 0 15px rgba(255, 159, 67, 0.6);
+  margin: 0;
+}
+
+.hub-modal-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.hub-modal-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.hub-lb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.hub-lb-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: all 0.2s ease;
+}
+
+.hub-lb-item:hover {
+  background: rgba(255, 159, 67, 0.08);
+  border-color: rgba(255, 159, 67, 0.4);
+  transform: translateY(-2px);
+}
+
+.hub-lb-game {
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.hub-lb-champ {
+  font-family: monospace;
+  font-size: 12px;
+  color: #00f5ff;
+}
+
 @media (max-width: 640px) {
   .app-container { padding: 20px 12px 60px; }
   .games-grid { grid-template-columns: 1fr; }
+  .hub-modal-box { padding: 20px; }
+  .hub-modal-header h2 { font-size: 12px; }
 }

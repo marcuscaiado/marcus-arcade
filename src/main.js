@@ -59,6 +59,30 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch(e){}
   }
 
+  // World Records Modal Handlers
+  const hubLbModal = document.getElementById('hub-lb-modal');
+  const openHubLbBtn = document.getElementById('open-hub-lb');
+  const closeHubLbBtn = document.getElementById('close-hub-lb');
+  const hubLbOkBtn = document.getElementById('hub-lb-ok-btn');
+
+  if (openHubLbBtn && hubLbModal) {
+    openHubLbBtn.addEventListener('click', () => {
+      hubLbModal.style.display = 'flex';
+    });
+  }
+
+  const closeHubLb = () => {
+    if (hubLbModal) hubLbModal.style.display = 'none';
+  };
+
+  if (closeHubLbBtn) closeHubLbBtn.addEventListener('click', closeHubLb);
+  if (hubLbOkBtn) hubLbOkBtn.addEventListener('click', closeHubLb);
+  if (hubLbModal) {
+    hubLbModal.addEventListener('click', (e) => {
+      if (e.target === hubLbModal) closeHubLb();
+    });
+  }
+
   document.querySelectorAll('.play-btn, .filter-btn').forEach(el => {
     el.addEventListener('mouseenter', playClick);
   });
