@@ -1,6 +1,6 @@
 /**
- * Marcus Web Arcade — Universal Global Leaderboard & Online Rival Engine
- * 100% Free • Real Cloud Synchronization • Anti-Cheat • Zero Cost
+ * Marcus Web Arcade — Universal Real Live Global Leaderboard Engine
+ * 100% Free • Real Cloud Synchronization • Zero Fake Names • Anti-Cheat
  * Live Cloud Endpoint: GitHub Gist CDN
  */
 (function(window) {
@@ -15,7 +15,6 @@
   // Global cache
   let cloudCache = null;
 
-  // Pre-fetch cloud records on page load
   async function fetchCloudScores() {
     try {
       const res = await fetch(`${GIST_RAW_URL}?_t=${Date.now()}`, { cache: 'no-store' });
@@ -23,13 +22,12 @@
         cloudCache = await res.json();
       }
     } catch(e) {
-      console.warn('Cloud leaderboard offline fallback active:', e);
+      console.warn('Cloud leaderboard offline:', e);
     }
   }
   fetchCloudScores();
 
   const ArcadeLeaderboard = {
-    // 1. Get or create persistent player handle
     getPlayerTag: function() {
       let tag = localStorage.getItem('arcade_player_tag');
       if (!tag) {
@@ -52,7 +50,7 @@
       return this.getPlayerTag();
     },
 
-    // 2. Fetch Leaderboard Scores (Real Cloud + Local Player Submissions)
+    // 2. Fetch Leaderboard Scores (Pure Real Submissions)
     getScores: function(gameId) {
       const storageKey = `arcade_lb_${gameId}`;
       let localScores = [];
@@ -62,24 +60,22 @@
 
       let cloudGameScores = (cloudCache && cloudCache[gameId]) ? cloudCache[gameId] : [];
 
-      // Merge cloud + local scores
       let mergedMap = new Map();
 
       cloudGameScores.forEach(s => {
-        mergedMap.set(s.name, { ...s, isYou: false });
-      });
-
-      localScores.forEach(s => {
-        const existing = mergedMap.get(s.name);
-        if (!existing || s.score > existing.score) {
-          mergedMap.set(s.name, { ...s });
+        if (s && s.name && s.score) {
+          mergedMap.set(s.name, { ...s, isYou: false });
         }
       });
 
-      // Default baseline fallback if completely empty
-      if (mergedMap.size === 0) {
-        mergedMap.set('🇧🇷 MarcusCaiado', { name: '🇧🇷 MarcusCaiado', score: 82, date: 'Today' });
-      }
+      localScores.forEach(s => {
+        if (s && s.name && s.score) {
+          const existing = mergedMap.get(s.name);
+          if (!existing || s.score > existing.score) {
+            mergedMap.set(s.name, { ...s });
+          }
+        }
+      });
 
       let scores = Array.from(mergedMap.values());
       scores.sort((a, b) => b.score - a.score);
@@ -126,20 +122,18 @@
       const scores = this.submitScore(gameId, score);
       const playerTag = this.getPlayerTag();
 
-      // Find player rank
       const playerRank = scores.findIndex(s => s.name === playerTag) + 1;
       const rankDisplay = playerRank > 0 ? `#${playerRank}` : `TOP 15`;
-      const percentile = playerRank > 0 ? Math.max(1, Math.round((playerRank / Math.max(scores.length, 10)) * 100)) : 10;
+      const percentile = playerRank > 0 ? Math.max(1, Math.round((playerRank / Math.max(scores.length, 1)) * 100)) : 100;
 
-      // Next Rival to Beat
       let rivalText = '🏆 YOU ARE THE WORLD #1 CHAMPION!';
       if (playerRank > 1) {
         const rival = scores[playerRank - 2];
         const diff = rival.score - score;
-        rivalText = `🎯 Beat <b>${rival.name}</b> (${rival.score} ${scoreUnit}) — only <b>+${diff}</b> to advance!`;
+        rivalText = `🎯 Beat <b>${rival.name}</b> (${rival.score} ${scoreUnit}) — only <b>+${diff}</b> to take #${playerRank - 1}!`;
       } else if (playerRank === 1 && scores.length > 1) {
         const second = scores[1];
-        rivalText = `🔥 Leading by <b>+${score - second.score} ${scoreUnit}</b> over <b>${second.name}</b>!`;
+        rivalText = `🔥 Reigning #1! Leading by <b>+${score - second.score} ${scoreUnit}</b> over <b>${second.name}</b>!`;
       }
 
       let modalOverlay = document.getElementById('arcade-global-lb-modal');
@@ -150,18 +144,23 @@
         document.body.appendChild(modalOverlay);
       }
 
-      let leaderboardRowsHtml = scores.slice(0, 6).map((s, idx) => {
-        const rankMedal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `${idx + 1}.`));
-        const youClass = s.isYou ? 'lb-row-you' : '';
-        const youTag = s.isYou ? ' <span class="lb-you-badge">YOU</span>' : '';
-        return `
-          <div class="lb-row ${youClass}">
-            <div class="lb-rank">${rankMedal}</div>
-            <div class="lb-name">${s.name}${youTag}</div>
-            <div class="lb-score">${s.score.toLocaleString()} <span style="font-size:9px; color:#888;">${scoreUnit}</span></div>
-          </div>
-        `;
-      }).join('');
+      let leaderboardRowsHtml = '';
+      if (scores.length === 0) {
+        leaderboardRowsHtml = `<div style="text-align:center; padding:16px; color:#94a3b8; font-size:12px;">👑 NO SCORES YET — YOU SET THE FIRST RECORD!</div>`;
+      } else {
+        leaderboardRowsHtml = scores.slice(0, 6).map((s, idx) => {
+          const rankMedal = idx === 0 ? '🥇' : (idx === 1 ? '🥈' : (idx === 2 ? '🥉' : `${idx + 1}.`));
+          const youClass = s.isYou ? 'lb-row-you' : '';
+          const youTag = s.isYou ? ' <span class="lb-you-badge">YOU</span>' : '';
+          return `
+            <div class="lb-row ${youClass}">
+              <div class="lb-rank">${rankMedal}</div>
+              <div class="lb-name">${s.name}${youTag}</div>
+              <div class="lb-score">${s.score.toLocaleString()} <span style="font-size:9px; color:#888;">${scoreUnit}</span></div>
+            </div>
+          `;
+        }).join('');
+      }
 
       modalOverlay.innerHTML = `
         <div class="lb-box">
@@ -182,7 +181,7 @@
           </div>
 
           <div class="lb-table">
-            <div class="lb-table-title">🌍 LIVE REAL CLOUD LEADERBOARD</div>
+            <div class="lb-table-title">🌍 REAL LIVE GLOBAL LEADERBOARD</div>
             ${leaderboardRowsHtml}
           </div>
 
