@@ -142,6 +142,7 @@ body, html {
 .card-golf:hover { border-color: var(--green); }
 .card-pool:hover { border-color: var(--pink); }
 .card-fps:hover { border-color: var(--yellow); }
+.card-survivor:hover { border-color: var(--cyan); }
 
 .card-tag {
   font-size: 11px;
@@ -215,6 +216,11 @@ body, html {
   background: linear-gradient(135deg, #ffa801, #ffd32a);
   box-shadow: 0 6px 20px rgba(255, 168, 1, 0.35);
   color: #1a1a1a;
+}
+.btn-survivor {
+  background: linear-gradient(135deg, #00f5ff, #b967ff);
+  box-shadow: 0 6px 20px rgba(0, 245, 255, 0.35);
+  color: #0a0e27;
 }
 
 .play-btn:hover {
