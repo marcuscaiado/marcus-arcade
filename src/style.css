@@ -262,6 +262,9 @@ body {
 .btn-droid { background: linear-gradient(135deg, #00f5ff, #b967ff); color: #000; }
 .btn-runner { background: linear-gradient(135deg, #ff007f, #ffa502); }
 .btn-archery { background: linear-gradient(135deg, #05ffa1, #ffff00); color: #000; }
+.btn-stack { background: linear-gradient(135deg, #00f5ff, #ff007f); color: #000; }
+.btn-pachinko { background: linear-gradient(135deg, #ff9f43, #05ffa1); color: #000; }
+.btn-shuriken { background: linear-gradient(135deg, #b967ff, #00f5ff); color: #000; }
 
 /* Footer */
 .arcade-footer {
