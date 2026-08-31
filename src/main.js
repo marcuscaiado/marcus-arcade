@@ -1,48 +1,63 @@
-import './style.css';
+// Marcus Arcade Interactive Engine
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('game-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.game-card');
 
-// =============================================
-//  MARCUS ARCADE - Sound & Tilt Interactivity
-// =============================================
+  let currentCategory = 'all';
+  let searchQuery = '';
 
-let audioCtx = null;
-function getAudioCtx() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  function filterGames() {
+    cards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const searchData = (card.getAttribute('data-title') || '').toLowerCase();
+      const textContent = card.innerText.toLowerCase();
+
+      const matchesCat = (currentCategory === 'all' || category === currentCategory);
+      const matchesSearch = (!searchQuery || searchData.includes(searchQuery) || textContent.includes(searchQuery));
+
+      if (matchesCat && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
   }
-  return audioCtx;
-}
 
-function playHoverBeep(freq = 440) {
-  try {
-    const ctx = getAudioCtx();
-    if (ctx.state === 'suspended') return;
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, ctx.currentTime);
-    gain.gain.setValueAtTime(0.04, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start();
-    osc.stop(ctx.currentTime + 0.08);
-  } catch (e) {}
-}
+  // Search input handler
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      filterGames();
+    });
+  }
 
-document.addEventListener('click', () => {
-  const ctx = getAudioCtx();
-  if (ctx.state === 'suspended') ctx.resume();
-}, { once: true });
-
-// Sound on button & card hover
-document.querySelectorAll('.game-card').forEach((card, i) => {
-  card.addEventListener('mouseenter', () => {
-    playHoverBeep(350 + i * 120);
+  // Category filter tabs handler
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.getAttribute('data-filter');
+      filterGames();
+    });
   });
-});
 
-document.querySelectorAll('.exp-card').forEach((card, i) => {
-  card.addEventListener('mouseenter', () => {
-    playHoverBeep(600 + i * 80);
+  // Sound effect on button hover
+  let audioCtx = null;
+  function playClick() {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      osc.frequency.value = 600;
+      g.gain.setValueAtTime(0.04, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+      osc.connect(g); g.connect(audioCtx.destination);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.04);
+    } catch(e){}
+  }
+
+  document.querySelectorAll('.play-btn, .filter-btn').forEach(el => {
+    el.addEventListener('mouseenter', playClick);
   });
 });
