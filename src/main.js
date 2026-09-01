@@ -34,10 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Category filter tabs handler
+  // Category filter tabs handler (excluding world records button)
   filterBtns.forEach(btn => {
+    if (btn.id === 'open-hub-lb') return;
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => {
+        if (b.id !== 'open-hub-lb') b.classList.remove('active');
+      });
       btn.classList.add('active');
       currentCategory = btn.getAttribute('data-filter');
       filterGames();
@@ -81,6 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'neon-archery-master', name: 'Neon Archery Master', icon: '🎯', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-archery-master/' }
   ];
 
+  // DOM Elements
+  const hubLbModal = document.getElementById('hub-lb-modal');
+  const hubLbGrid = document.getElementById('hub-lb-grid');
+  const openHubLbBtn = document.getElementById('open-hub-lb');
+  const closeHubLbBtn = document.getElementById('close-hub-lb');
+  const hubLbOkBtn = document.getElementById('hub-lb-ok-btn');
+  const hubPilotBtn = document.getElementById('hub-pilot-btn');
+  const hubTagEl = document.getElementById('hub-pilot-tag');
+  const modalPilotInput = document.getElementById('modal-pilot-input');
+  const modalPilotSaveBtn = document.getElementById('modal-pilot-save-btn');
+
   // 3-Letter Arcade Pilot Nickname Management
   function getPilotTag() {
     let tag = localStorage.getItem('arcade_player_tag') || 'MRC';
@@ -99,15 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updatePilotDisplays() {
     const tag = getPilotTag();
-    const hubTagEl = document.getElementById('hub-pilot-tag');
-    const modalInputEl = document.getElementById('modal-pilot-input');
     if (hubTagEl) hubTagEl.textContent = tag;
-    if (modalInputEl) modalInputEl.value = tag;
+    if (modalPilotInput) modalPilotInput.value = tag;
   }
 
   updatePilotDisplays();
 
-  const hubPilotBtn = document.getElementById('hub-pilot-btn');
   if (hubPilotBtn) {
     hubPilotBtn.addEventListener('click', () => {
       const current = getPilotTag();
@@ -116,8 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const modalPilotSaveBtn = document.getElementById('modal-pilot-save-btn');
-  const modalPilotInput = document.getElementById('modal-pilot-input');
   if (modalPilotSaveBtn && modalPilotInput) {
     modalPilotSaveBtn.addEventListener('click', () => {
       setPilotTag(modalPilotInput.value);
@@ -130,14 +139,24 @@ document.addEventListener('DOMContentLoaded', () => {
   async function renderWorldRecords() {
     if (!hubLbGrid) return;
     updatePilotDisplays();
-    hubLbGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:20px; color:#00f5ff;">⚡ Syncing live cloud records...</div>`;
 
-    let cloudData = {};
+    // 1. Instant Render from LocalStorage first (Zero lag)
+    renderGridHTML({});
+
+    // 2. Fetch live cloud data and refresh
     try {
       const res = await fetch(`${GIST_RAW_URL}?_t=${Date.now()}`);
-      if (res.ok) cloudData = await res.json();
-    } catch(e) {}
+      if (res.ok) {
+        const cloudData = await res.json();
+        renderGridHTML(cloudData);
+      }
+    } catch(e) {
+      console.warn('Could not sync cloud records, displaying local:', e);
+    }
+  }
 
+  function renderGridHTML(cloudData = {}) {
+    if (!hubLbGrid) return;
     let html = '';
     ARCADE_GAMES.forEach(game => {
       let localScores = [];
@@ -166,8 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     hubLbGrid.innerHTML = html;
   }
 
+  // Open Modal Handler
   if (openHubLbBtn && hubLbModal) {
-    openHubLbBtn.addEventListener('click', () => {
+    openHubLbBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       hubLbModal.style.display = 'flex';
       renderWorldRecords();
     });
