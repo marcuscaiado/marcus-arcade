@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node scripts/verify-games.js",
+    "sync-daily": "node scripts/daily-sync.js",
+    "pipeline": "npm test && npm run sync-daily && npm run build"
   },
   "devDependencies": {
     "vite": "^8.2.2"

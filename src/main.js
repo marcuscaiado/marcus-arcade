@@ -1,4 +1,5 @@
 import './style.css';
+import ARCADE_GAMES from './games-manifest.json';
 
 // Marcus Arcade Interactive Engine
 document.addEventListener('DOMContentLoaded', () => {
@@ -64,28 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Real Live World Records Hub Engine
   const GIST_RAW_URL = 'https://gist.githubusercontent.com/marcuscaiado/a238a8db5b064579413c7a54aba6c840/raw/marcus-arcade-leaderboard.json';
-  const ARCADE_GAMES = [
-    { id: 'neon-stack-3d', name: 'Neon Stack Harmony 3D', icon: '🌌', unit: 'SLABS', url: 'https://marcuscaiado.github.io/neon-stack-3d/' },
-    { id: 'neon-pachinko-pop', name: 'Neon Pachinko Pop', icon: '🔮', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-pachinko-pop/' },
-    { id: 'cyber-shuriken', name: 'Cyber Shuriken Neo', icon: '🎯', unit: 'PTS', url: 'https://marcuscaiado.github.io/cyber-shuriken/' },
-    { id: 'stickman-fps-arcade', name: 'Stickman FPS Arcade', icon: '🔫', unit: 'PTS', url: 'https://marcuscaiado.github.io/stickman-fps-arcade/' },
-    { id: 'flappy-cyber-droid', name: 'Flappy Cyber Droid', icon: '🐦', unit: 'GATES', url: 'https://marcuscaiado.github.io/flappy-cyber-droid/' },
-    { id: 'brick-breaker-fx', name: 'Brick Breaker FX', icon: '🧱', unit: 'PTS', url: 'https://marcuscaiado.github.io/brick-breaker-fx/' },
-    { id: 'sky-ace-1944', name: 'Sky Ace 1944', icon: '🛩️', unit: 'PTS', url: 'https://marcuscaiado.github.io/sky-ace-1944/' },
-    { id: 'cute-mini-golf', name: 'Cute Mini Golf 3D', icon: '⛳', unit: 'PTS', url: 'https://marcuscaiado.github.io/cute-mini-golf/' },
-    { id: 'kawaii-8ball-pool', name: 'Kawaii 8-Ball Pool', icon: '🎱', unit: 'PTS', url: 'https://marcuscaiado.github.io/kawaii-8ball-pool/' },
-    { id: 'geometricsurvivor', name: 'Geometric Survivor 3D', icon: '🌌', unit: 'KILLS', url: 'https://marcuscaiado.github.io/geometricsurvivor/' },
-    { id: 'neon-drift-racer', name: 'Neon Drift Racer', icon: '🏎️', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-drift-racer/' },
-    { id: 'neon-viper', name: 'Neon Viper', icon: '🐍', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-viper/' },
-    { id: 'cyber-runner-3d', name: 'Cyber Runner 3D', icon: '🏃', unit: 'PTS', url: 'https://marcuscaiado.github.io/cyber-runner-3d/' },
-    { id: 'cyber-pong-3d', name: 'Cyber Pong 3D', icon: '🏓', unit: 'PTS', url: 'https://marcuscaiado.github.io/cyber-pong-3d/' },
-    { id: 'neon-drop-2048', name: 'Neon Drop 2048', icon: '🧩', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-drop-2048/' },
-    { id: 'asteroid-blitz', name: 'Asteroid Blitz', icon: '🛸', unit: 'PTS', url: 'https://marcuscaiado.github.io/asteroid-blitz/' },
-    { id: 'neon-archery-master', name: 'Neon Archery Master', icon: '🎯', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-archery-master/' },
-    { id: 'neon-orbit-drift', name: 'Neon Orbit Drift', icon: '🛸', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-orbit-drift/' },
-    { id: 'cyber-pinball-fx', name: 'Cyber Pinball FX', icon: '⚡', unit: 'PTS', url: 'https://marcuscaiado.github.io/cyber-pinball-fx/' },
-    { id: 'neon-katana-slash', name: 'Neon Katana Slash', icon: '⚔️', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-katana-slash/' }
-  ];
 
   // DOM Elements
   const hubLbModal = document.getElementById('hub-lb-modal');
