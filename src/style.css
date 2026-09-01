@@ -368,20 +368,33 @@ body {
   margin-top: 8px;
 }
 
-/* World Records Hub Modal */
-.lb-hub-btn {
-  background: linear-gradient(135deg, rgba(255, 159, 67, 0.2), rgba(255, 0, 127, 0.2));
-  border-color: #ff9f43 !important;
-  color: #ff9f43 !important;
+/* World Records Dedicated Button */
+.world-records-btn {
+  background: linear-gradient(135deg, rgba(255, 159, 67, 0.25), rgba(255, 0, 127, 0.25));
+  border: 1.5px solid #ff9f43;
+  color: #ff9f43;
+  padding: 8px 18px;
+  border-radius: 999px;
   font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   box-shadow: 0 0 15px rgba(255, 159, 67, 0.3);
 }
 
-.lb-hub-btn:hover {
-  background: linear-gradient(135deg, #ff9f43, #ff007f) !important;
-  color: #000 !important;
-  box-shadow: 0 0 25px rgba(255, 159, 67, 0.6);
+.world-records-btn:hover {
+  background: linear-gradient(135deg, #ff9f43, #ff007f);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 159, 67, 0.7);
 }
+
+.btn-orbit { background: linear-gradient(135deg, #00f5ff, #7928ca); color: #fff; }
+.btn-pinball { background: linear-gradient(135deg, #ff007f, #00f5ff); color: #fff; }
+.btn-katana { background: linear-gradient(135deg, #00f5ff, #05ffa1); color: #000; }
 
 .hub-modal-overlay {
   position: fixed;

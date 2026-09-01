@@ -81,7 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'cyber-pong-3d', name: 'Cyber Pong 3D', icon: '🏓', unit: 'PTS', url: 'https://marcuscaiado.github.io/cyber-pong-3d/' },
     { id: 'neon-drop-2048', name: 'Neon Drop 2048', icon: '🧩', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-drop-2048/' },
     { id: 'asteroid-blitz', name: 'Asteroid Blitz', icon: '🛸', unit: 'PTS', url: 'https://marcuscaiado.github.io/asteroid-blitz/' },
-    { id: 'neon-archery-master', name: 'Neon Archery Master', icon: '🎯', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-archery-master/' }
+    { id: 'neon-archery-master', name: 'Neon Archery Master', icon: '🎯', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-archery-master/' },
+    { id: 'neon-orbit-drift', name: 'Neon Orbit Drift', icon: '🛸', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-orbit-drift/' },
+    { id: 'cyber-pinball-fx', name: 'Cyber Pinball FX', icon: '⚡', unit: 'PTS', url: 'https://marcuscaiado.github.io/cyber-pinball-fx/' },
+    { id: 'neon-katana-slash', name: 'Neon Katana Slash', icon: '⚔️', unit: 'PTS', url: 'https://marcuscaiado.github.io/neon-katana-slash/' }
   ];
 
   // DOM Elements
