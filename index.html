@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marcus's Web Arcade 🕹️✨</title>
-    <meta name="description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant fun on Mobile & PC." />
+    <meta name="description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant 60fps fun on Mobile & PC." />
     <meta name="theme-color" content="#060814" />
 
     <!-- Open Graph / Discord / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://marcuscaiado.github.io/marcus-arcade/" />
     <meta property="og:title" content="Marcus's Web Arcade 🕹️✨" />
-    <meta property="og:description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant fun on Mobile & PC." />
+    <meta property="og:description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant 60fps fun on Mobile & PC." />
     <meta property="og:site_name" content="Marcus's Web Arcade" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://marcuscaiado.github.io/marcus-arcade/" />
     <meta name="twitter:title" content="Marcus's Web Arcade 🕹️✨" />
-    <meta name="twitter:description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant fun on Mobile & PC." />
+    <meta name="twitter:description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant 60fps fun on Mobile & PC." />
 
     <link rel="stylesheet" href="./src/style.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -38,13 +38,13 @@
           </button>
         </div>
         <h1 class="arcade-title">MARCUS ARCADE</h1>
-        <p class="arcade-subtitle">Zero-install, instant-play 3D & 2D web games built with Three.js, Canvas & Web Audio</p>
+        <p class="arcade-subtitle">Zero-install, ultra-fast 60fps games optimized for Mobile (Galaxy A55) & PC</p>
         
-        <!-- Search & Filter Controls (3kh0 Style) -->
+        <!-- Search & Filter Controls -->
         <div class="controls-deck">
           <div class="search-bar-wrap">
             <span class="search-icon">🔍</span>
-            <input type="text" id="game-search" placeholder="Search games (e.g. golf, pong, snake, candy, chick, survivor)..." autocomplete="off" />
+            <input type="text" id="game-search" placeholder="Search games (e.g. viper, pong, pinball, golf, katana, brick)..." autocomplete="off" />
           </div>
           <div class="filter-tabs">
             <button class="filter-btn active" data-filter="all">All (20)</button>
@@ -57,9 +57,9 @@
         </div>
       </header>
 
-      <!-- 🌟 JOGOS EM DESTAQUE (Top Featured Games & Daily 6AM Tested Polish Updates) -->
+      <!-- 🌟 JOGOS EM DESTAQUE (Top Featured Tested Games) -->
       <section class="daily-releases-deck">
-        <div class="daily-badge">🌟 JOGOS EM DESTAQUE • DAILY FEATURE UPDATES • 6:00 AM SYNC</div>
+        <div class="daily-badge">🌟 JOGOS EM DESTAQUE • TESTED 60FPS EXPERIENCES</div>
         <div class="daily-cards-row">
 
           <!-- Featured 1: Cute Mini Golf 3D -->
@@ -79,36 +79,36 @@
             </a>
           </div>
 
-          <!-- Featured 2: Kawaii Table Tennis 3D -->
+          <!-- Featured 2: Neon Viper -->
+          <div class="daily-mini-card">
+            <div>
+              <div class="daily-card-header">
+                <span class="daily-mini-icon">🐍</span>
+                <div>
+                  <div class="daily-mini-title">Neon Viper</div>
+                  <div class="daily-url">/neon-viper/</div>
+                </div>
+              </div>
+              <p class="daily-mini-desc">Ultra-fluid 360° neon slither arena with nitro boost, energy pellets & smooth 60fps touch controls.</p>
+            </div>
+            <a href="https://marcuscaiado.github.io/neon-viper/" target="_blank" rel="noopener noreferrer" class="play-btn btn-viper">
+              <span>PLAY NOW</span> ➔
+            </a>
+          </div>
+
+          <!-- Featured 3: Cyber Pong 3D -->
           <div class="daily-mini-card">
             <div>
               <div class="daily-card-header">
                 <span class="daily-mini-icon">🏓</span>
                 <div>
-                  <div class="daily-mini-title">Kawaii Table Tennis 3D</div>
+                  <div class="daily-mini-title">Cyber Pong 3D</div>
                   <div class="daily-url">/cyber-pong-3d/</div>
                 </div>
               </div>
-              <p class="daily-mini-desc">Super cute 3D table tennis with 1-to-1 mouse paddle controls, generous hitboxes & sweet audio FX.</p>
+              <p class="daily-mini-desc">Fast-paced neon table tennis with spin curve ball physics, reactive paddle & instant 1v1 matchmaking.</p>
             </div>
             <a href="https://marcuscaiado.github.io/cyber-pong-3d/" target="_blank" rel="noopener noreferrer" class="play-btn btn-pong">
-              <span>PLAY NOW</span> ➔
-            </a>
-          </div>
-
-          <!-- Featured 3: Cute Sweet Breaker 3D -->
-          <div class="daily-mini-card">
-            <div>
-              <div class="daily-card-header">
-                <span class="daily-mini-icon">🍬</span>
-                <div>
-                  <div class="daily-mini-title">Cute Sweet Breaker 3D</div>
-                  <div class="daily-url">/brick-breaker-fx/</div>
-                </div>
-              </div>
-              <p class="daily-mini-desc">Sweet 3D candy breakout with pastel candy blocks, gummy paddle with kawaii eyes & sugar pearls.</p>
-            </div>
-            <a href="https://marcuscaiado.github.io/brick-breaker-fx/" target="_blank" rel="noopener noreferrer" class="play-btn btn-brick">
               <span>PLAY NOW</span> ➔
             </a>
           </div>
@@ -119,7 +119,71 @@
       <section class="section">
         <div class="games-grid" id="games-container">
           
-          <!-- 1. Cute Mini Golf 3D -->
+          <!-- 1. Neon Viper -->
+          <div class="game-card" data-category="arcade" data-title="neon viper snake 360 fluid slither boost neon">
+            <div class="card-tag">Arcade • Fluid 360° Snake</div>
+            <div class="card-icon">🐍</div>
+            <h3 class="card-title">Neon Viper</h3>
+            <p class="card-desc">Smooth 360-degree fluid slithering neon snake with nitro speed bursts, glowing energy pellets, and ultra-fast 60fps Canvas steering.</p>
+            <div class="card-badges">
+              <span class="badge">Canvas 2D</span>
+              <span class="badge">360° Physics</span>
+              <span class="badge">60 FPS A55</span>
+            </div>
+            <a href="https://marcuscaiado.github.io/neon-viper/" target="_blank" rel="noopener noreferrer" class="play-btn btn-viper">
+              <span>PLAY GAME</span> ➔
+            </a>
+          </div>
+
+          <!-- 2. Cyber Pong 3D -->
+          <div class="game-card" data-category="sports" data-title="cyber pong 3d neon paddle curve ball ai">
+            <div class="card-tag">Sports • Neon Arena</div>
+            <div class="card-icon">🏓</div>
+            <h3 class="card-title">Cyber Pong 3D</h3>
+            <p class="card-desc">Futuristic neon Pong court with spin curve-ball physics, dynamic sparks, and lightweight responsive paddle physics.</p>
+            <div class="card-badges">
+              <span class="badge">Canvas 2D</span>
+              <span class="badge">Curve Ball</span>
+              <span class="badge">Adaptive AI</span>
+            </div>
+            <a href="https://marcuscaiado.github.io/cyber-pong-3d/" target="_blank" rel="noopener noreferrer" class="play-btn btn-pong">
+              <span>PLAY GAME</span> ➔
+            </a>
+          </div>
+
+          <!-- 3. Brick Breaker FX -->
+          <div class="game-card" data-category="arcade" data-title="brick breaker fx breakout arcade explosion powerups">
+            <div class="card-tag">Arcade • Explosive Breakout</div>
+            <div class="card-icon">🧱</div>
+            <h3 class="card-title">Brick Breaker FX</h3>
+            <p class="card-desc">Juice-packed neon breakout arcade game with multi-ball power-ups, paddle expansion capsules, and shatter physics.</p>
+            <div class="card-badges">
+              <span class="badge">Canvas 2D</span>
+              <span class="badge">Multi-Ball</span>
+              <span class="badge">Power-Ups</span>
+            </div>
+            <a href="https://marcuscaiado.github.io/brick-breaker-fx/" target="_blank" rel="noopener noreferrer" class="play-btn btn-brick">
+              <span>PLAY GAME</span> ➔
+            </a>
+          </div>
+
+          <!-- 4. Flappy Cyber Droid -->
+          <div class="game-card" data-category="arcade" data-title="flappy cyber droid flapper bird jumper tap">
+            <div class="card-tag">Arcade • One-Tap Jumper</div>
+            <div class="card-icon">🐦</div>
+            <h3 class="card-title">Flappy Cyber Droid</h3>
+            <p class="card-desc">Addictive neon flapper arcade game featuring a hovering cyber-droid, pulsing laser gates, and collectible energy crystals.</p>
+            <div class="card-badges">
+              <span class="badge">Canvas 2D</span>
+              <span class="badge">One-Tap Flap</span>
+              <span class="badge">Laser Gates</span>
+            </div>
+            <a href="https://marcuscaiado.github.io/flappy-cyber-droid/" target="_blank" rel="noopener noreferrer" class="play-btn btn-droid">
+              <span>PLAY GAME</span> ➔
+            </a>
+          </div>
+
+          <!-- 5. Cute Mini Golf 3D -->
           <div class="game-card" data-category="sports" data-title="cute mini golf 3d three.js cannon physics golf kawaii">
             <div class="card-tag">3D Sports • Three.js</div>
             <div class="card-icon">⛳</div>
@@ -131,70 +195,6 @@
               <span class="badge">Mobile & PC</span>
             </div>
             <a href="https://marcuscaiado.github.io/cute-mini-golf/" target="_blank" rel="noopener noreferrer" class="play-btn btn-golf">
-              <span>PLAY GAME</span> ➔
-            </a>
-          </div>
-
-          <!-- 2. Kawaii Table Tennis 3D -->
-          <div class="game-card" data-category="sports" data-title="kawaii table tennis 3d cyber pong ping pong paddle curve ball ai">
-            <div class="card-tag">3D Sports • Kawaii Court</div>
-            <div class="card-icon">🏓</div>
-            <h3 class="card-title">Kawaii Table Tennis 3D</h3>
-            <p class="card-desc">Super cute 3D table tennis with Kawaii eye paddles, generous hitboxes, 1-to-1 mouse controls, bouncy ball physics & sweet audio FX.</p>
-            <div class="card-badges">
-              <span class="badge">Three.js 3D</span>
-              <span class="badge">Paddle Physics</span>
-              <span class="badge">Cute Audio</span>
-            </div>
-            <a href="https://marcuscaiado.github.io/cyber-pong-3d/" target="_blank" rel="noopener noreferrer" class="play-btn btn-pong">
-              <span>PLAY GAME</span> ➔
-            </a>
-          </div>
-
-          <!-- 3. Cute Sweet Breaker 3D -->
-          <div class="game-card" data-category="arcade" data-title="cute sweet breaker 3d brick breaker fx breakout candy pastel gummy">
-            <div class="card-tag">3D Arcade • Candy Breakout</div>
-            <div class="card-icon">🍬</div>
-            <h3 class="card-title">Cute Sweet Breaker 3D</h3>
-            <p class="card-desc">Sweet 3D candy breakout with pastel candy blocks, gummy paddle with kawaii eyes, multi-ball sugar pearls and audio FX.</p>
-            <div class="card-badges">
-              <span class="badge">Three.js 3D</span>
-              <span class="badge">Pastel Candy</span>
-              <span class="badge">Gummy Physics</span>
-            </div>
-            <a href="https://marcuscaiado.github.io/brick-breaker-fx/" target="_blank" rel="noopener noreferrer" class="play-btn btn-brick">
-              <span>PLAY GAME</span> ➔
-            </a>
-          </div>
-
-          <!-- 4. Kawaii Flappy Chick 3D -->
-          <div class="game-card" data-category="arcade" data-title="kawaii flappy chick 3d flappy cyber droid flapper bird jumper tap cute">
-            <div class="card-tag">3D Arcade • One-Tap Flapper</div>
-            <div class="card-icon">🐥</div>
-            <h3 class="card-title">Kawaii Flappy Chick 3D</h3>
-            <p class="card-desc">Charming 3D flapper arcade game featuring a chubby chick with animated flapping wings, pastel cloud skies and golden corn grains.</p>
-            <div class="card-badges">
-              <span class="badge">Three.js 3D</span>
-              <span class="badge">Flapping Wings</span>
-              <span class="badge">Pastel Skies</span>
-            </div>
-            <a href="https://marcuscaiado.github.io/flappy-cyber-droid/" target="_blank" rel="noopener noreferrer" class="play-btn btn-droid">
-              <span>PLAY GAME</span> ➔
-            </a>
-          </div>
-
-          <!-- 5. Cute Snake.io 3D -->
-          <div class="game-card" data-category="arcade" data-title="cute snake io 3d neon viper snake 360 fluid slither fruit cartoon">
-            <div class="card-tag">3D Arcade • Fruit Arena</div>
-            <div class="card-icon">🐍</div>
-            <h3 class="card-title">Cute Snake.io 3D</h3>
-            <p class="card-desc">Super cute 3D cartoon fruit snake arena with 12 skins, 3D juicy fruits, nitro boost & fruit death explosions.</p>
-            <div class="card-badges">
-              <span class="badge">Three.js 3D</span>
-              <span class="badge">Cartoon Skins</span>
-              <span class="badge">Juicy Fruits</span>
-            </div>
-            <a href="https://marcuscaiado.github.io/neon-viper/" target="_blank" rel="noopener noreferrer" class="play-btn btn-viper">
               <span>PLAY GAME</span> ➔
             </a>
           </div>
@@ -284,7 +284,7 @@
             <div class="card-tag">Retro Shmup • Bullet Hell</div>
             <div class="card-icon">🛩️</div>
             <h3 class="card-title">Sky Ace 1944</h3>
-            <p class="card-desc">Vertical retro airplane bullet-hell shooter with auto-firing blasters, tactical mega-bombs, and swarming enemy squadrons.</p>
+            <p class="card-desc">Vertical retro WWII bullet-hell shooter with auto-firing blasters, tactical mega-bombs, and swarming enemy squadrons.</p>
             <div class="card-badges">
               <span class="badge">Retro Shmup</span>
               <span class="badge">Mega Bombs</span>
@@ -449,7 +449,7 @@
           <span>•</span>
           <a href="#" id="footer-lb-link">🏆 World Records</a>
           <span>•</span>
-          <span>© 2026 Marcus Caiado • Built with Three.js & HTML5</span>
+          <span>© 2026 Marcus Caiado • Built with HTML5 & Canvas 2D</span>
         </div>
       </footer>
     </div>
