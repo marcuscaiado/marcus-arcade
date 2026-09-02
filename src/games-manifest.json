@@ -89,13 +89,13 @@
   },
   {
     "id": "cyber-pong-3d",
-    "name": "Cyber Pong 3D",
+    "name": "Kawaii Table Tennis 3D",
     "icon": "🏓",
     "category": "sports",
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cyber-pong-3d/",
-    "description": "Futuristic neon table tennis with spin curve ball physics, reactive paddle and 60fps performance.",
-    "tech": ["Canvas 2D", "Curve Ball Physics", "Audio FX"],
+    "description": "Super cute 3D table tennis with Kawaii eye paddles, generous hitboxes, 1-to-1 mouse controls, bouncy ball physics & sweet audio FX.",
+    "tech": ["Three.js 3D", "Paddle Physics", "Cute Audio"],
     "badgeClass": "btn-pong"
   },
   {
