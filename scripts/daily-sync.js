@@ -27,18 +27,12 @@ function getBrtDate() {
 }
 
 function getDailyFeaturedGames(manifest, dateInfo) {
-  const epoch = new Date('2026-09-01T00:00:00-03:00').getTime();
-  const current = dateInfo.brtDate.getTime();
-  const dayIndex = Math.max(0, Math.floor((current - epoch) / (1000 * 60 * 60 * 24)));
+  const PINNED_FEATURED_IDS = ['geometricsurvivor', 'neon-viper', 'cute-mini-golf', 'cyber-pong-3d'];
+  const games = PINNED_FEATURED_IDS
+    .map(id => manifest.find(g => g.id === id))
+    .filter(Boolean);
 
-  const total = manifest.length;
-  const startIdx = (dayIndex * 3) % total;
-
-  const g1 = manifest[startIdx];
-  const g2 = manifest[(startIdx + 1) % total];
-  const g3 = manifest[(startIdx + 2) % total];
-
-  return { dayIndex, games: [g1, g2, g3] };
+  return { dayIndex: 0, games };
 }
 
 function generateDailyDeckHtml(games, dateStr) {

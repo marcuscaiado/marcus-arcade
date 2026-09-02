@@ -330,6 +330,7 @@ body {
 .btn-pool { background: linear-gradient(135deg, #ff5e57, #ff3f34); }
 .btn-fps { background: linear-gradient(135deg, #ffa801, #ff5e57); color: #000; }
 .btn-survivor { background: linear-gradient(135deg, #00f5ff, #ff007f); color: #000; }
+.btn-geo { background: linear-gradient(135deg, #ff477e, #ffd166); color: #000; font-weight: 800; }
 .btn-racer { background: linear-gradient(135deg, #ff007f, #ffff00); color: #000; }
 .btn-pong { background: linear-gradient(135deg, #00f5ff, #05ffa1); color: #000; }
 .btn-viper { background: linear-gradient(135deg, #05ffa1, #00f5ff); color: #000; }

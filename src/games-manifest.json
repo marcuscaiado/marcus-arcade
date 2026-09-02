@@ -68,12 +68,12 @@
   {
     "id": "geometricsurvivor",
     "name": "Geometric Survivor 3D",
-    "icon": "🌌",
+    "icon": "⚔️",
     "category": "action",
     "unit": "KILLS",
     "url": "https://marcuscaiado.github.io/geometricsurvivor/",
-    "description": "Cyberpunk survivor bullet hell with mobile touch joystick and procedural waves.",
-    "tech": ["Three.js 3D", "Procedural Waves", "Joystick"],
+    "description": "Megabonk-style 3D cartoon survivor on a floating island! 3 heroes (Sir Bonk, Pippin & Sparky), healing hearts, invincibility & speed buffs.",
+    "tech": ["Three.js 3D", "3 Heroes", "Vampire Upgrades"],
     "badgeClass": "btn-geo"
   },
   {
