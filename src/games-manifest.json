@@ -154,15 +154,15 @@
     "badgeClass": "btn-asteroid"
   },
   {
-    "id": "flappy-cyber-droid",
-    "name": "Flappy Cyber Droid",
-    "icon": "🐦",
+    "id": "neon-tetris-3d",
+    "name": "Neon Cyber Tetris 3D",
+    "icon": "🧱",
     "category": "arcade",
-    "unit": "GATES",
-    "url": "https://marcuscaiado.github.io/flappy-cyber-droid/",
-    "description": "Addictive neon flapper arcade game featuring a hovering cyber-droid, laser gates & energy crystals.",
-    "tech": ["Canvas 2D", "One-Tap Flap", "Laser Gates"],
-    "badgeClass": "btn-droid"
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/neon-tetris-3d/",
+    "description": "Tetris Effect-style 3D falling tetrominoes in a holographic cyber matrix with laser line clears and popping glowing graphics.",
+    "tech": ["Three.js 3D", "Ghost Projection", "Synth Audio", "SRS Rotation"],
+    "badgeClass": "btn-tetris"
   },
   {
     "id": "neon-archery-master",
