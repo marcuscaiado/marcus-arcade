@@ -320,6 +320,12 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.btn-tetris {
+  background: linear-gradient(135deg, #00f5ff 0%, #ff007f 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 245, 255, 0.4);
+}
+
 .play-btn:hover {
   transform: scale(1.02);
   filter: brightness(1.15);

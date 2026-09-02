@@ -30,7 +30,7 @@
       <!-- Arcade Header -->
       <header class="arcade-header">
         <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
-          <div class="header-badge">✨ 20 ORIGINAL PLAYABLE WEB GAMES ✨</div>
+          <div class="header-badge">✨ 21 ORIGINAL PLAYABLE WEB GAMES ✨</div>
           <button class="pilot-badge" id="hub-pilot-btn" title="Click to customize your 3-letter Arcade Nickname (e.g. MRC, ACE, NEO)">
             <span style="font-size: 11px; opacity: 0.8;">👾 PILOT:</span>
             <span id="hub-pilot-tag" style="color: #00f5ff; font-weight: 900; letter-spacing: 2px;">MRC</span>
@@ -44,10 +44,10 @@
         <div class="controls-deck">
           <div class="search-bar-wrap">
             <span class="search-icon">🔍</span>
-            <input type="text" id="game-search" placeholder="Search games (e.g. viper, pong, pinball, golf, katana, brick)..." autocomplete="off" />
+            <input type="text" id="game-search" placeholder="Search games (e.g. tetris, viper, pong, pinball, golf, katana)..." autocomplete="off" />
           </div>
           <div class="filter-tabs">
-            <button class="filter-btn active" data-filter="all">All (20)</button>
+            <button class="filter-btn active" data-filter="all">All (21)</button>
             <button class="filter-btn" data-filter="action">Action & Shooter</button>
             <button class="filter-btn" data-filter="arcade">Arcade & Casual</button>
             <button class="filter-btn" data-filter="sports">Sports & Physics</button>
@@ -135,6 +135,22 @@
       <!-- Games Grid (Full Library) -->
       <section class="section">
         <div class="games-grid" id="games-container">
+
+          <!-- 0. Neon Cyber Tetris 3D -->
+          <div class="game-card" data-category="arcade" data-title="neon cyber tetris 3d tetrominoes block drop puzzle threejs srs t-spin">
+            <div class="card-tag">3D Arcade • Synesthesia</div>
+            <div class="card-icon">🧱</div>
+            <h3 class="card-title">Neon Cyber Tetris 3D</h3>
+            <p class="card-desc">Tetris Effect-style 3D falling tetrominoes in a holographic cyber matrix with laser line clears, official SRS kicks, T-spins, and popping glowing graphics.</p>
+            <div class="card-badges">
+              <span class="badge">Three.js 3D</span>
+              <span class="badge">SRS Kicks</span>
+              <span class="badge">T-Spins</span>
+            </div>
+            <a href="https://marcuscaiado.github.io/neon-tetris-3d/" target="_blank" rel="noopener noreferrer" class="play-btn btn-tetris">
+              <span>PLAY GAME</span> ➔
+            </a>
+          </div>
           
           <!-- 1. Neon Viper 3D -->
           <div class="game-card" data-category="arcade" data-title="neon viper 3d snake.io slither cyber arena three.js skins bots">

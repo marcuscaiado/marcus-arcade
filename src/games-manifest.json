@@ -207,5 +207,16 @@
     "description": "Fast-paced synthwave 3-lane obstacle runner with jump mechanics and power-ups.",
     "tech": ["Canvas 3D", "Perspective Math", "Endless"],
     "badgeClass": "btn-runner"
+  },
+  {
+    "id": "flappy-cyber-droid",
+    "name": "Flappy Cyber Droid",
+    "icon": "🐦",
+    "category": "arcade",
+    "unit": "GATES",
+    "url": "https://marcuscaiado.github.io/flappy-cyber-droid/",
+    "description": "Addictive neon flapper arcade game featuring a hovering cyber-droid, laser gates & energy crystals.",
+    "tech": ["Canvas 2D", "One-Tap Flap", "Laser Gates"],
+    "badgeClass": "btn-droid"
   }
 ]
