@@ -209,6 +209,17 @@
     "badgeClass": "btn-runner"
   },
   {
+    "id": "cyber-shuriken",
+    "name": "Cyber Shuriken Neo",
+    "icon": "🎯",
+    "category": "action",
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/cyber-shuriken/",
+    "description": "Rhythmic knife throwing into rotating boss matrices with harmonic chimes.",
+    "tech": ["Canvas 2D", "Rotational Math", "Boss Waves"],
+    "badgeClass": "btn-shuriken"
+  },
+  {
     "id": "flappy-cyber-droid",
     "name": "Flappy Cyber Droid",
     "icon": "🐦",
