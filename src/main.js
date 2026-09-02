@@ -48,19 +48,148 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Sound effect on button hover
+  // ==========================================
+  // DOPAMINE & SEROTONIN AUDIO & VISUAL ENGINE
+  // ==========================================
   let audioCtx = null;
-  function playClick() {
+  const QUAD_COLORS = ['#00f5ff', '#ff007f', '#ffe600', '#00ff66', '#8ab4f8', '#f28b82', '#fdd663', '#81c995'];
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+  }
+
+  // Pure celestial comforting dopamine chime (inspired by spectrum-dopamine-store)
+  function playDopamineChime() {
     try {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      initAudio();
+      if (!audioCtx) return;
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      notes.forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+
+        const startTime = audioCtx.currentTime + idx * 0.055;
+        g.gain.setValueAtTime(0, startTime);
+        g.gain.linearRampToValueAtTime(0.18, startTime + 0.015);
+        g.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.45);
+
+        osc.connect(g);
+        g.connect(audioCtx.destination);
+        osc.start(startTime);
+        osc.stop(startTime + 0.5);
+      });
+    } catch(e) {}
+  }
+
+  // Tactile water drop bubble pop (satisfying, bubbly, zero harshness)
+  function playBubblePop() {
+    try {
+      initAudio();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const g = audioCtx.createGain();
-      osc.frequency.value = 600;
-      g.gain.setValueAtTime(0.04, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
-      osc.connect(g); g.connect(audioCtx.destination);
-      osc.start(); osc.stop(audioCtx.currentTime + 0.04);
-    } catch(e){}
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(450, now);
+      osc.frequency.exponentialRampToValueAtTime(280, now + 0.05);
+
+      g.gain.setValueAtTime(0.08, now);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + 0.05);
+
+      osc.connect(g);
+      g.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.055);
+    } catch(e) {}
+  }
+
+  // Quad-Color Canvas Confetti Cannon
+  const confettiCanvas = document.getElementById('confetti-canvas');
+  let confettiCtx = confettiCanvas ? confettiCanvas.getContext('2d') : null;
+  let particles = [];
+
+  function resizeConfetti() {
+    if (confettiCanvas) {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+  }
+  window.addEventListener('resize', resizeConfetti);
+  resizeConfetti();
+
+  class Confetti {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.color = QUAD_COLORS[Math.floor(Math.random() * QUAD_COLORS.length)];
+      this.size = Math.random() * 8 + 5;
+      this.speedX = (Math.random() - 0.5) * 16;
+      this.speedY = (Math.random() - 0.8) * 18;
+      this.gravity = 0.45;
+      this.opacity = 1;
+      this.decay = Math.random() * 0.02 + 0.015;
+      this.rotation = Math.random() * 360;
+      this.rotSpeed = (Math.random() - 0.5) * 10;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.speedY += this.gravity;
+      this.opacity -= this.decay;
+      this.rotation += this.rotSpeed;
+    }
+    draw(ctx) {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, this.opacity);
+      ctx.translate(this.x, this.y);
+      ctx.rotate((this.rotation * Math.PI) / 180);
+      ctx.fillStyle = this.color;
+      ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+      ctx.restore();
+    }
+  }
+
+  function explodeConfetti(x = window.innerWidth / 2, y = window.innerHeight * 0.4, count = 50) {
+    for (let i = 0; i < count; i++) {
+      particles.push(new Confetti(x, y));
+    }
+  }
+
+  function loopConfetti() {
+    if (confettiCtx && confettiCanvas) {
+      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw(confettiCtx);
+        if (p.opacity <= 0) particles.splice(i, 1);
+      }
+    }
+    requestAnimationFrame(loopConfetti);
+  }
+  loopConfetti();
+
+  // Dopamine Level Tracker
+  let hubDopamine = 120;
+  function addDopamine(amount = 50) {
+    hubDopamine += amount;
+    const fill = document.getElementById('hub-dopamine-fill');
+    const badge = document.getElementById('hub-dopamine-badge');
+    if (fill) {
+      const pct = Math.min(100, Math.round((hubDopamine % 300) / 3));
+      fill.style.width = `${pct}%`;
+    }
+    if (badge) {
+      const lvl = Math.floor(hubDopamine / 300) + 1;
+      const names = ['LVL 1: CHILL', 'LVL 2: HIGH DOPAMINE', 'LVL 3: MÁXIMA SEROTONINA ⚡🌈'];
+      badge.textContent = names[Math.min(lvl - 1, names.length - 1)];
+    }
   }
 
   // Real Live World Records Hub Engine
@@ -167,10 +296,13 @@ document.addEventListener('DOMContentLoaded', () => {
     hubLbGrid.innerHTML = html;
   }
 
-  // Open Modal Handler
+  // Open Modal Handler with Dopamine Chime & Confetti
   if (openHubLbBtn && hubLbModal) {
     openHubLbBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      playDopamineChime();
+      explodeConfetti(window.innerWidth / 2, window.innerHeight * 0.35, 60);
+      addDopamine(80);
       hubLbModal.style.display = 'flex';
       renderWorldRecords();
     });
@@ -188,7 +320,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.querySelectorAll('.play-btn, .filter-btn').forEach(el => {
-    el.addEventListener('mouseenter', playClick);
+  // Hover & Click Audio Dopamine
+  document.querySelectorAll('.play-btn').forEach(el => {
+    el.addEventListener('mouseenter', playBubblePop);
+    el.addEventListener('click', (e) => {
+      playDopamineChime();
+      explodeConfetti(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 50);
+      addDopamine(100);
+    });
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(el => {
+    el.addEventListener('click', () => {
+      playBubblePop();
+      addDopamine(20);
+    });
   });
 });

@@ -57,8 +57,69 @@ body {
   border: 1px solid rgba(255, 107, 157, 0.3);
   padding: 8px 16px;
   border-radius: 999px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   letter-spacing: 1px;
+}
+
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dopamine-meter-hub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(13, 10, 30, 0.85);
+  border: 1px solid rgba(255, 0, 127, 0.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.dopamine-hub-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #ff99ff;
+  letter-spacing: 0.5px;
+}
+
+.hub-dopamine-badge {
+  font-size: 10px;
+  background: linear-gradient(90deg, #ff007f, #00f5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.hub-dopamine-track {
+  width: 70px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.hub-dopamine-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f5ff, #00ff66, #ffff00, #ff007f);
+  background-size: 200% 100%;
+  animation: rainbowShift 2s linear infinite;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .arcade-title {
