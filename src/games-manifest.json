@@ -100,13 +100,13 @@
   },
   {
     "id": "neon-viper",
-    "name": "Neon Viper",
+    "name": "Neon Viper 3D",
     "icon": "🐍",
     "category": "arcade",
-    "unit": "PTS",
+    "unit": "MASS",
     "url": "https://marcuscaiado.github.io/neon-viper/",
-    "description": "Smooth 360-degree fluid slithering neon snake evolution with nitro speed bursts & energy pellets.",
-    "tech": ["Canvas 2D", "360° Physics", "Nitro Boost"],
+    "description": "3D Snake.io cyber arena with 8 3D skins, 10+ smart AI bots, radar minimap, nitro boost & safe body coiling.",
+    "tech": ["Three.js 3D", "Snake.io Physics", "8 Skins"],
     "badgeClass": "btn-viper"
   },
   {
