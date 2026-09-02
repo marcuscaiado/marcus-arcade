@@ -88,47 +88,36 @@
     "badgeClass": "btn-racer"
   },
   {
-    "id": "cyber-runner-3d",
-    "name": "Cyber Runner 3D",
-    "icon": "🏃",
-    "category": "retro",
-    "unit": "PTS",
-    "url": "https://marcuscaiado.github.io/cyber-runner-3d/",
-    "description": "Fast-paced synthwave 3-lane obstacle runner with jump mechanics and power-ups.",
-    "tech": ["Canvas 3D", "Perspective Math", "Endless"],
-    "badgeClass": "btn-runner"
-  },
-  {
     "id": "cyber-pong-3d",
-    "name": "Cyber Pong 3D",
+    "name": "Kawaii Table Tennis 3D",
     "icon": "🏓",
     "category": "sports",
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cyber-pong-3d/",
-    "description": "3D curve-ball Pong with WebRTC P2P QR Room multiplayer and adaptive AI.",
-    "tech": ["Canvas 3D", "WebRTC PeerJS", "QR Multiplayer"],
+    "description": "Super cute 3D table tennis with Kawaii eye paddles, bouncy ball physics & sweet audio FX.",
+    "tech": ["Three.js 3D", "Paddle Physics", "Cute Audio"],
     "badgeClass": "btn-pong"
   },
   {
     "id": "neon-viper",
-    "name": "Neon Viper",
+    "name": "Cute Snake.io 3D",
     "icon": "🐍",
     "category": "arcade",
-    "unit": "PTS",
+    "unit": "MASS",
     "url": "https://marcuscaiado.github.io/neon-viper/",
-    "description": "Smooth 360° fluid slithering neon snake evolution with glowing energy orbs.",
-    "tech": ["Canvas 2D", "Vector Physics", "Smooth Tail"],
+    "description": "Super cute 3D cartoon fruit snake arena with 12 skins, 3D juicy fruits & fruit death explosions.",
+    "tech": ["Three.js 3D", "Cartoon Skins", "Juicy Fruits"],
     "badgeClass": "btn-viper"
   },
   {
     "id": "brick-breaker-fx",
-    "name": "Brick Breaker FX",
-    "icon": "🧱",
+    "name": "Cute Sweet Breaker 3D",
+    "icon": "🍬",
     "category": "arcade",
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/brick-breaker-fx/",
-    "description": "Explosive breakout arcade with multi-ball power-ups, paddle lasers & particle FX.",
-    "tech": ["Canvas 2D", "Particle FX", "Laser Power"],
+    "description": "Sweet 3D candy breakout with pastel candy blocks, gummy paddle with kawaii eyes & sugar pearls.",
+    "tech": ["Three.js 3D", "Pastel Candy", "Gummy Physics"],
     "badgeClass": "btn-brick"
   },
   {
@@ -166,13 +155,13 @@
   },
   {
     "id": "flappy-cyber-droid",
-    "name": "Flappy Cyber Droid",
-    "icon": "🐦",
+    "name": "Kawaii Flappy Chick 3D",
+    "icon": "🐥",
     "category": "arcade",
     "unit": "GATES",
     "url": "https://marcuscaiado.github.io/flappy-cyber-droid/",
-    "description": "Addictive neon flapper arcade game with pulsing laser gates and energy crystals.",
-    "tech": ["Canvas 2D", "Flap Physics", "Sound Synth"],
+    "description": "Adorable 3D fluffy chick flying through pastel candy donut rings & rainbow arches.",
+    "tech": ["Three.js 3D", "Flapping Physics", "Cute Chimes"],
     "badgeClass": "btn-flappy"
   },
   {
