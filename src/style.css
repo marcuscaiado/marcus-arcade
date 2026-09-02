@@ -405,7 +405,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 20px;
   animation: hubModalFade 0.25s ease-out;
 }
 
@@ -414,23 +414,28 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-.hub-modal-box {
-  background: linear-gradient(135deg, rgba(22, 28, 56, 0.96), rgba(8, 11, 26, 0.98));
-  border: 2px solid rgba(255, 159, 67, 0.4);
+.hub-modal-card, .hub-modal-box {
+  background: linear-gradient(135deg, rgba(22, 28, 56, 0.98), rgba(8, 11, 26, 0.98));
+  border: 2px solid rgba(255, 159, 67, 0.5);
   border-radius: 24px;
-  padding: 28px 30px;
-  max-width: 580px;
+  padding: 28px;
+  max-width: 820px;
   width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 0 50px rgba(255, 159, 67, 0.25), 0 20px 60px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
 }
 
 .hub-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
 }
 
-.hub-modal-header h2 {
+.hub-modal-title, .hub-modal-header h2 {
   font-family: 'Press Start 2P', monospace;
   font-size: 14px;
   color: #ff9f43;
@@ -438,38 +443,109 @@ body {
   margin: 0;
 }
 
-.hub-modal-close {
-  background: transparent;
-  border: none;
+.hub-close-btn, .hub-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
   color: #fff;
-  font-size: 28px;
+  font-size: 18px;
   cursor: pointer;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
 }
 
-.hub-modal-subtitle {
-  font-size: 13px;
+.hub-close-btn:hover, .hub-modal-close:hover {
+  background: #ff007f;
+  border-color: #ff007f;
+  transform: rotate(90deg);
+}
+
+.pilot-customizer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed rgba(0, 245, 255, 0.35);
+  border-radius: 14px;
+  padding: 10px 18px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pilot-custom-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #d8b4e2;
+  letter-spacing: 1px;
+}
+
+.pilot-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pilot-save-btn {
+  background: linear-gradient(135deg, #00f5ff, #00d2d3);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pilot-save-btn:hover {
+  background: #ff007f;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+}
+
+.hub-modal-sub, .hub-modal-subtitle {
+  font-size: 12px;
   color: var(--text-muted);
-  margin-top: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
-.hub-lb-grid {
+.hub-leaderboard-grid, .hub-lb-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 6px;
+  flex: 1;
+  max-height: 52vh;
+}
+
+/* Custom Scrollbar for Grid */
+.hub-leaderboard-grid::-webkit-scrollbar, .hub-lb-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.hub-leaderboard-grid::-webkit-scrollbar-thumb, .hub-lb-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 159, 67, 0.4);
+  border-radius: 4px;
 }
 
 .hub-lb-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 12px 14px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: all 0.2s ease;
 }
 
 .hub-lb-item:hover {
-  background: rgba(255, 159, 67, 0.08);
+  background: rgba(255, 159, 67, 0.1);
   border-color: rgba(255, 159, 67, 0.4);
   transform: translateY(-2px);
 }
@@ -478,13 +554,35 @@ body {
   font-size: 13px;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 4px;
 }
 
 .hub-lb-champ {
   font-family: monospace;
   font-size: 12px;
   color: #00f5ff;
+}
+
+.hub-modal-footer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.arcade-action-btn {
+  background: linear-gradient(135deg, #ff9f43, #ff007f);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.arcade-action-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 159, 67, 0.6);
 }
 
 /* 3-Letter Arcade Pilot Badge */
