@@ -23,13 +23,13 @@
   },
   {
     "id": "neon-katana-slash",
-    "name": "Neon Katana Slash",
-    "icon": "⚔️",
+    "name": "Neon Katana Slash (Fruit Ninja)",
+    "icon": "🍉",
     "category": "action",
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-katana-slash/",
-    "description": "Cyberpunk blade matrix slicer with floating apex physics and swipe combos.",
-    "tech": ["Canvas 2D", "Swipe Slicer", "Blade Math"],
+    "description": "Super juicy Fruit Ninja blade slicer! Swipe glowing blade trails to slice flying fruits and build massive combos.",
+    "tech": ["Canvas 2D", "Swipe Slicer", "Fruit Combos"],
     "badgeClass": "btn-katana"
   },
   {
@@ -198,14 +198,14 @@
     "badgeClass": "btn-pachinko"
   },
   {
-    "id": "cyber-shuriken",
-    "name": "Cyber Shuriken Neo",
-    "icon": "🎯",
-    "category": "action",
+    "id": "cyber-runner-3d",
+    "name": "Cyber Runner 3D",
+    "icon": "🏃",
+    "category": "retro",
     "unit": "PTS",
-    "url": "https://marcuscaiado.github.io/cyber-shuriken/",
-    "description": "Rhythmic knife throwing into rotating boss matrices with harmonic chimes.",
-    "tech": ["Canvas 2D", "Rotational Math", "Boss Waves"],
-    "badgeClass": "btn-shuriken"
+    "url": "https://marcuscaiado.github.io/cyber-runner-3d/",
+    "description": "Fast-paced synthwave 3-lane obstacle runner with jump mechanics and power-ups.",
+    "tech": ["Canvas 3D", "Perspective Math", "Endless"],
+    "badgeClass": "btn-runner"
   }
 ]
