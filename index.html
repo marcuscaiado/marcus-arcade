@@ -21,11 +21,12 @@
     <meta name="twitter:description" content="Play 20+ original 3D & 2D browser games by Marcus Caiado. Zero install, instant 60fps fun on Mobile & PC." />
 
     <link rel="icon" type="image/svg+xml" href="/marcus-arcade/favicon.svg" />
-    <script type="module" crossorigin src="/marcus-arcade/assets/index-BRaO-UZi.js"></script>
-    <link rel="stylesheet" crossorigin href="/marcus-arcade/assets/index-CIG_U6mP.css">
+    <script type="module" crossorigin src="/marcus-arcade/assets/index-C8mW3Tyd.js"></script>
+    <link rel="stylesheet" crossorigin href="/marcus-arcade/assets/index-mFZsoSp9.css">
   </head>
   <body>
     <div class="stars-bg"></div>
+    <canvas id="confetti-canvas"></canvas>
     <div class="app-container">
       
       <!-- Arcade Header -->
@@ -37,6 +38,16 @@
             <span id="hub-pilot-tag" style="color: #00f5ff; font-weight: 900; letter-spacing: 2px;">MRC</span>
             <span style="font-size: 11px;">✏️</span>
           </button>
+          
+          <!-- Serotonin Dopamine Rush Badge -->
+          <div class="dopamine-meter-hub" title="Arcade Serotonin & Dopamine Level">
+            <span style="color: #ffe600; font-size: 12px;">⚡</span>
+            <span class="dopamine-hub-label">SEROTONINA:</span>
+            <strong id="hub-dopamine-badge" class="hub-dopamine-badge">LVL 1: CHILL</strong>
+            <div class="hub-dopamine-track">
+              <div id="hub-dopamine-fill" class="hub-dopamine-fill" style="width: 40%;"></div>
+            </div>
+          </div>
         </div>
         <h1 class="arcade-title">MARCUS ARCADE</h1>
         <p class="arcade-subtitle">Zero-install, ultra-fast 60fps games optimized for Mobile (Galaxy A55) & PC</p>
