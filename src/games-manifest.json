@@ -359,5 +359,20 @@
       "Arena Battle"
     ],
     "badgeClass": "btn-bomberman"
+  },
+  {
+    "id": "gta-2",
+    "name": "Grand Theft Auto 2",
+    "icon": "🚗",
+    "category": "action",
+    "unit": "RESPECT",
+    "url": "https://marcuscaiado.github.io/gta-2/",
+    "description": "Rockstar's legendary top-down crime epic! Steal cars, outrun police, answer payphones, and rule the city in 60 FPS WebAssembly.",
+    "tech": [
+      "WASM EmulatorJS",
+      "Rockstar Games",
+      "Open World"
+    ],
+    "badgeClass": "btn-gta"
   }
 ]

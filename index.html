@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marcus Arcade — 24 Jogos Jogáveis • Originais & Clássicos</title>
-    <meta name="description" content="Marcus Arcade — 24 Jogos Jogáveis no Navegador (21 Originais + Street Fighter II, Super Mario World e Super Bomberman). Zero install, 60fps no PC e celular por Marcus Caiado." />
+    <title>Marcus Arcade — 25 Jogos Jogáveis • Originais & Clássicos</title>
+    <meta name="description" content="Marcus Arcade — 25 Jogos Jogáveis no Navegador (21 Originais + Street Fighter II, Super Mario, Bomberman e GTA 2). Zero install, 60fps no PC e celular por Marcus Caiado." />
     <meta name="theme-color" content="#060814" />
 
     <!-- Open Graph / Discord / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://marcuscaiado.github.io/marcus-arcade/" />
-    <meta property="og:title" content="Marcus Arcade — 24 Jogos Jogáveis • Originais & Clássicos" />
-    <meta property="og:description" content="Jogue 24 jogos 3D e 2D no navegador por Marcus Caiado (21 originais + Street Fighter II, Super Mario World e Super Bomberman). Zero install, diversão instantânea a 60 FPS." />
+    <meta property="og:title" content="Marcus Arcade — 25 Jogos Jogáveis • Originais & Clássicos" />
+    <meta property="og:description" content="Jogue 25 jogos 3D e 2D no navegador por Marcus Caiado (21 originais + Street Fighter II, Super Mario World, Super Bomberman e GTA 2). Zero install, diversão instantânea a 60 FPS." />
     <meta property="og:image" content="https://marcuscaiado.github.io/marcus-arcade/icons.svg" />
     <meta property="og:site_name" content="Marcus Arcade" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://marcuscaiado.github.io/marcus-arcade/" />
-    <meta name="twitter:title" content="Marcus Arcade — 24 Jogos Jogáveis • Originais & Clássicos" />
-    <meta name="twitter:description" content="Jogue 24 jogos 3D e 2D no navegador por Marcus Caiado (21 originais + Street Fighter II, Super Mario World e Super Bomberman). Zero install, diversão instantânea a 60 FPS." />
+    <meta name="twitter:title" content="Marcus Arcade — 25 Jogos Jogáveis • Originais & Clássicos" />
+    <meta name="twitter:description" content="Jogue 25 jogos 3D e 2D no navegador por Marcus Caiado (21 originais + Street Fighter II, Super Mario World, Super Bomberman e GTA 2). Zero install, diversão instantânea a 60 FPS." />
     <meta name="twitter:image" content="https://marcuscaiado.github.io/marcus-arcade/icons.svg" />
 
     <link rel="stylesheet" href="./src/style.css" />
@@ -35,7 +35,7 @@
       <!-- Arcade Header -->
       <header class="arcade-header">
         <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
-          <div class="header-badge">✨ 24 JOGOS JOGÁVEIS • ORIGINAIS & CLÁSSICOS ✨</div>
+          <div class="header-badge">✨ 25 JOGOS JOGÁVEIS • ORIGINAIS & CLÁSSICOS ✨</div>
           <button class="pilot-badge" id="hub-pilot-btn" title="Click to customize your 3-letter Arcade Nickname (e.g. MRC, ACE, NEO)">
             <span style="font-size: 11px; opacity: 0.8;">👾 PILOT:</span>
             <span id="hub-pilot-tag" style="color: #00f5ff; font-weight: 900; letter-spacing: 2px;">MRC</span>
@@ -52,7 +52,7 @@
             <input type="text" id="game-search" placeholder="Search games (e.g. tetris, viper, pong, pinball, golf, katana)..." autocomplete="off" />
           </div>
           <div class="filter-tabs">
-            <button class="filter-btn active" data-filter="all">All (24)</button>
+            <button class="filter-btn active" data-filter="all">All (25)</button>
             <button class="filter-btn" data-filter="action">Action & Shooter</button>
             <button class="filter-btn" data-filter="arcade">Arcade & Casual</button>
             <button class="filter-btn" data-filter="sports">Sports & Physics</button>
@@ -301,7 +301,23 @@
             </a>
           </div>
 
-          <!-- 10. Stickman FPS Arcade -->
+          <!-- 10. Grand Theft Auto 2 -->
+          <div class="game-card" data-category="action" data-title="grand theft auto 2 gta2 gbc rockstar games open world crime carjacking police chases retro">
+            <div class="card-tag">GBC Classic • Open World</div>
+            <div class="card-icon">🚗</div>
+            <h3 class="card-title">Grand Theft Auto 2</h3>
+            <p class="card-desc">Rockstar's legendary top-down crime epic! Steal cars, outrun 6-star police sirens, answer ringing payphone missions, and rule the city streets in 60 FPS WebAssembly.</p>
+            <div class="card-badges">
+              <span class="badge">WASM 60 FPS</span>
+              <span class="badge">Rockstar</span>
+              <span class="badge">Open World</span>
+            </div>
+            <a href="https://marcuscaiado.github.io/gta-2/" target="_blank" rel="noopener noreferrer" class="play-btn btn-gta" style="background: linear-gradient(135deg, #ffd32a, #ff3838); color: #000; font-weight: 900;">
+              <span>PLAY GAME</span> ➔
+            </a>
+          </div>
+
+          <!-- 11. Stickman FPS Arcade -->
           <div class="game-card" data-category="action" data-title="stickman fps arcade shooter guns weapons">
             <div class="card-tag">Arcade Shooter • Rail FPS</div>
             <div class="card-icon">🔫</div>
@@ -557,7 +573,7 @@
         </div>
 
         <p class="hub-modal-sub">
-          Global high scores across all 24 Marcus Arcade games. Click any game to launch and beat the leaderboard!
+          Global high scores across all 25 Marcus Arcade games. Click any game to launch and beat the leaderboard!
         </p>
 
         <div class="hub-leaderboard-grid" id="hub-lb-grid">
