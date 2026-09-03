@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('game-search');
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.game-card');
+  const headerBadge = document.querySelector('.header-badge');
+  const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
+
+  if (headerBadge) {
+    headerBadge.textContent = `✨ ${cards.length} JOGOS JOGÁVEIS • ORIGINAIS & CLÁSSICOS ✨`;
+  }
+  if (allFilterBtn) {
+    allFilterBtn.textContent = `All (${cards.length})`;
+  }
 
   let currentCategory = 'all';
   let searchQuery = '';
