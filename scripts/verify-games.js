@@ -50,17 +50,22 @@ async function runTestSuite() {
     const localRepoPath = path.join(SCRATCH_DIR, game.id);
     let localHtmlFound = false;
     let hasLeaderboardScript = false;
+    let hasSoundEngineScript = false;
     let hasViewport = false;
 
     if (fs.existsSync(localRepoPath)) {
       const localHtmlPath = path.join(localRepoPath, 'index.html');
+      const soundEnginePath = path.join(localRepoPath, 'arcade-sound-engine.js');
       if (fs.existsSync(localHtmlPath)) {
         localHtmlFound = true;
         const htmlContent = fs.readFileSync(localHtmlPath, 'utf8');
         hasLeaderboardScript = htmlContent.includes('arcade-leaderboard.js');
+        hasSoundEngineScript = htmlContent.includes('arcade-sound-engine.js');
         hasViewport = htmlContent.includes('name="viewport"') || htmlContent.includes("name='viewport'");
 
         if (!hasViewport) failures.push('Missing viewport meta tag for mobile responsiveness');
+        if (!hasSoundEngineScript) failures.push('Missing arcade-sound-engine.js script tag');
+        if (!fs.existsSync(soundEnginePath)) failures.push('Missing arcade-sound-engine.js file in repository');
       } else {
         failures.push('Local repository missing index.html');
       }
@@ -90,7 +95,7 @@ async function runTestSuite() {
 
     if (failures.length === 0) {
       passedTests++;
-      console.log(`✅ PASS: ${testId} | HTTP: ${httpStatus} (${latencyMs}ms) | Local: ${localHtmlFound ? 'YES' : 'REMOTE'} | LB: ${hasLeaderboardScript ? 'OK' : 'N/A'}`);
+      console.log(`✅ PASS: ${testId} | HTTP: ${httpStatus} (${latencyMs}ms) | Local: ${localHtmlFound ? 'YES' : 'REMOTE'} | LB: ${hasLeaderboardScript ? 'OK' : 'N/A'} | Audio: ${hasSoundEngineScript ? 'OK' : 'N/A'}`);
     } else {
       failedTests++;
       console.error(`❌ FAIL: ${testId} | Errors: ${failures.join('; ')}`);
