@@ -7,7 +7,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-orbit-drift/",
     "description": "One-tap gravitational slingshot runner with harmonic chords & orbital drift physics.",
-    "tech": ["Canvas 2D", "Web Audio Synth", "Physics"],
+    "tech": [
+      "Canvas 2D",
+      "Web Audio Synth",
+      "Physics"
+    ],
     "badgeClass": "btn-orbit"
   },
   {
@@ -18,7 +22,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cyber-pinball-fx/",
     "description": "High-speed neon arcade pinball table with multi-bumpers, chime feedback & dual flippers.",
-    "tech": ["Canvas 2D", "Bumper Physics", "Audio FX"],
+    "tech": [
+      "Canvas 2D",
+      "Bumper Physics",
+      "Audio FX"
+    ],
     "badgeClass": "btn-pinball"
   },
   {
@@ -29,7 +37,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-katana-slash/",
     "description": "Super juicy Fruit Ninja blade slicer! Swipe glowing blade trails to slice flying fruits and build massive combos.",
-    "tech": ["Canvas 2D", "Swipe Slicer", "Fruit Combos"],
+    "tech": [
+      "Canvas 2D",
+      "Swipe Slicer",
+      "Fruit Combos"
+    ],
     "badgeClass": "btn-katana"
   },
   {
@@ -40,7 +52,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cute-mini-golf/",
     "description": "Nintendo-style mini golf with 3 kawaii golfers, 3D animated putters & authentic cup suction.",
-    "tech": ["Three.js 3D", "Cannon-es", "Web Audio"],
+    "tech": [
+      "Three.js 3D",
+      "Cannon-es",
+      "Web Audio"
+    ],
     "badgeClass": "btn-golf"
   },
   {
@@ -51,19 +67,12 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/kawaii-8ball-pool/",
     "description": "Super cute 8-ball pool where every ball has an animated kawaii face with squish physics.",
-    "tech": ["Canvas 2D", "2-Player", "Squish Physics"],
+    "tech": [
+      "Canvas 2D",
+      "2-Player",
+      "Squish Physics"
+    ],
     "badgeClass": "btn-pool"
-  },
-  {
-    "id": "stickman-time-crisis",
-    "name": "Stickman Time Crisis 3D",
-    "icon": "🚨",
-    "category": "action",
-    "unit": "PTS",
-    "url": "https://marcuscaiado.github.io/stickman-time-crisis/",
-    "description": "Arcade rail-shooter with Time Crisis duck & cover reload mechanics! Play as a Stickman Cop fighting Don Calamari's mob syndicate across 12 scenes.",
-    "tech": ["Three.js 3D", "Cover & Shoot", "12 Story Scenes"],
-    "badgeClass": "btn-orbit"
   },
   {
     "id": "stickman-fps-arcade",
@@ -73,7 +82,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/stickman-fps-arcade/",
     "description": "Retro stationary bunker shooter with 5 weapons, shop upgrades and wave defense.",
-    "tech": ["Canvas 2D", "Shop Upgrades", "Web Audio"],
+    "tech": [
+      "Canvas 2D",
+      "Shop Upgrades",
+      "Web Audio"
+    ],
     "badgeClass": "btn-fps"
   },
   {
@@ -84,7 +97,11 @@
     "unit": "KILLS",
     "url": "https://marcuscaiado.github.io/geometricsurvivor/",
     "description": "Megabonk-style 3D cartoon survivor on a floating island! 3 heroes (Sir Bonk, Pippin & Sparky), healing hearts, invincibility & speed buffs.",
-    "tech": ["Three.js 3D", "3 Heroes", "Vampire Upgrades"],
+    "tech": [
+      "Three.js 3D",
+      "3 Heroes",
+      "Vampire Upgrades"
+    ],
     "badgeClass": "btn-geo"
   },
   {
@@ -95,7 +112,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-drift-racer/",
     "description": "High-speed synthwave pseudo-3D highway racer with nitro boost and touch controls.",
-    "tech": ["Canvas 3D Projection", "Nitro System", "Retro"],
+    "tech": [
+      "Canvas 3D Projection",
+      "Nitro System",
+      "Retro"
+    ],
     "badgeClass": "btn-racer"
   },
   {
@@ -106,7 +127,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cyber-pong-3d/",
     "description": "Super cute 3D table tennis with Kawaii eye paddles, generous hitboxes, 1-to-1 mouse controls, bouncy ball physics & sweet audio FX.",
-    "tech": ["Three.js 3D", "Paddle Physics", "Cute Audio"],
+    "tech": [
+      "Three.js 3D",
+      "Paddle Physics",
+      "Cute Audio"
+    ],
     "badgeClass": "btn-pong"
   },
   {
@@ -117,7 +142,11 @@
     "unit": "MASS",
     "url": "https://marcuscaiado.github.io/neon-viper/",
     "description": "3D Snake.io cyber arena with 8 3D skins, 10+ smart AI bots, radar minimap, nitro boost & safe body coiling.",
-    "tech": ["Three.js 3D", "Snake.io Physics", "8 Skins"],
+    "tech": [
+      "Three.js 3D",
+      "Snake.io Physics",
+      "8 Skins"
+    ],
     "badgeClass": "btn-viper"
   },
   {
@@ -128,7 +157,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/brick-breaker-fx/",
     "description": "Juice-packed neon breakout arcade game with multi-ball power-ups, paddle expansion & shatter physics.",
-    "tech": ["Canvas 2D", "Multi-Ball", "Power-Ups"],
+    "tech": [
+      "Canvas 2D",
+      "Multi-Ball",
+      "Power-Ups"
+    ],
     "badgeClass": "btn-brick"
   },
   {
@@ -139,7 +172,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/sky-ace-1944/",
     "description": "Vertical retro WWII bullet-hell shooter with mega bombs, shields & quad spread.",
-    "tech": ["Canvas 2D", "Bullet Patterns", "Boss Battles"],
+    "tech": [
+      "Canvas 2D",
+      "Bullet Patterns",
+      "Boss Battles"
+    ],
     "badgeClass": "btn-sky"
   },
   {
@@ -150,7 +187,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-drop-2048/",
     "description": "Physics merge puzzle with glowing bouncy 2048 balls and satisfying pop chain reactions.",
-    "tech": ["Canvas 2D", "Circle Physics", "Suika Merge"],
+    "tech": [
+      "Canvas 2D",
+      "Circle Physics",
+      "Suika Merge"
+    ],
     "badgeClass": "btn-drop"
   },
   {
@@ -161,7 +202,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/asteroid-blitz/",
     "description": "Classic vector space shooter with inertia physics, hyperspace warp & splitting rocks.",
-    "tech": ["Canvas 2D Vector", "Inertia Physics", "Retro"],
+    "tech": [
+      "Canvas 2D Vector",
+      "Inertia Physics",
+      "Retro"
+    ],
     "badgeClass": "btn-asteroid"
   },
   {
@@ -172,7 +217,12 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-tetris-3d/",
     "description": "Tetris Effect-style 3D falling tetrominoes in a holographic cyber matrix with laser line clears and popping glowing graphics.",
-    "tech": ["Three.js 3D", "Ghost Projection", "Synth Audio", "SRS Rotation"],
+    "tech": [
+      "Three.js 3D",
+      "Ghost Projection",
+      "Synth Audio",
+      "SRS Rotation"
+    ],
     "badgeClass": "btn-tetris"
   },
   {
@@ -183,7 +233,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-archery-master/",
     "description": "Precision bow archery with trajectory prediction, crosswinds & holographic targets.",
-    "tech": ["Canvas 2D", "Ballistics Math", "Wind Physics"],
+    "tech": [
+      "Canvas 2D",
+      "Ballistics Math",
+      "Wind Physics"
+    ],
     "badgeClass": "btn-archery"
   },
   {
@@ -194,7 +248,11 @@
     "unit": "SLABS",
     "url": "https://marcuscaiado.github.io/neon-stack-3d/",
     "description": "3D block slicing tower stacking with soothing pentatonic synth chords.",
-    "tech": ["Three.js 3D", "Web Audio", "Slicing Math"],
+    "tech": [
+      "Three.js 3D",
+      "Web Audio",
+      "Slicing Math"
+    ],
     "badgeClass": "btn-stack"
   },
   {
@@ -205,7 +263,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/neon-pachinko-pop/",
     "description": "Peggle-style bouncy pachinko drop with jackpot buckets and neon bumpers.",
-    "tech": ["Canvas 2D", "Peg Physics", "Jackpot Zones"],
+    "tech": [
+      "Canvas 2D",
+      "Peg Physics",
+      "Jackpot Zones"
+    ],
     "badgeClass": "btn-pachinko"
   },
   {
@@ -216,7 +278,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cyber-runner-3d/",
     "description": "Fast-paced synthwave 3-lane obstacle runner with jump mechanics and power-ups.",
-    "tech": ["Canvas 3D", "Perspective Math", "Endless"],
+    "tech": [
+      "Canvas 3D",
+      "Perspective Math",
+      "Endless"
+    ],
     "badgeClass": "btn-runner"
   },
   {
@@ -227,7 +293,11 @@
     "unit": "PTS",
     "url": "https://marcuscaiado.github.io/cyber-shuriken/",
     "description": "Rhythmic knife throwing into rotating boss matrices with harmonic chimes.",
-    "tech": ["Canvas 2D", "Rotational Math", "Boss Waves"],
+    "tech": [
+      "Canvas 2D",
+      "Rotational Math",
+      "Boss Waves"
+    ],
     "badgeClass": "btn-shuriken"
   },
   {
@@ -238,7 +308,11 @@
     "unit": "GATES",
     "url": "https://marcuscaiado.github.io/flappy-cyber-droid/",
     "description": "Addictive neon flapper arcade game featuring a hovering cyber-droid, laser gates & energy crystals.",
-    "tech": ["Canvas 2D", "One-Tap Flap", "Laser Gates"],
+    "tech": [
+      "Canvas 2D",
+      "One-Tap Flap",
+      "Laser Gates"
+    ],
     "badgeClass": "btn-droid"
   }
 ]
