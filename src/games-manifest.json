@@ -314,5 +314,20 @@
       "Laser Gates"
     ],
     "badgeClass": "btn-droid"
+  },
+  {
+    "id": "street-fighter-2",
+    "name": "Street Fighter II Turbo",
+    "icon": "🥊",
+    "category": "action",
+    "unit": "WINS",
+    "url": "https://marcuscaiado.github.io/street-fighter-2/",
+    "description": "Authentic Capcom arcade fighting! All 12 fighters, Turbo speed modes, Hadoukens, Shoryukens, and 60 FPS WebAssembly emulation.",
+    "tech": [
+      "WASM EmulatorJS",
+      "12 Fighters",
+      "Turbo Mode"
+    ],
+    "badgeClass": "btn-fighter"
   }
 ]
