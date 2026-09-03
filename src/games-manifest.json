@@ -329,5 +329,20 @@
       "Turbo Mode"
     ],
     "badgeClass": "btn-fighter"
+  },
+  {
+    "id": "super-mario",
+    "name": "Super Mario World",
+    "icon": "🍄",
+    "category": "retro",
+    "unit": "EXITS",
+    "url": "https://marcuscaiado.github.io/super-mario/",
+    "description": "The legendary Super Nintendo masterpiece! Ride Yoshi, soar with the magic cape, explore Dinosaur Land, and run in 60 FPS WebAssembly.",
+    "tech": [
+      "WASM EmulatorJS",
+      "Yoshi & Cape",
+      "96 Exits"
+    ],
+    "badgeClass": "btn-mario"
   }
 ]
