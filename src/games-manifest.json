@@ -344,5 +344,20 @@
       "96 Exits"
     ],
     "badgeClass": "btn-mario"
+  },
+  {
+    "id": "super-bomberman",
+    "name": "Super Bomberman",
+    "icon": "💣",
+    "category": "retro",
+    "unit": "WINS",
+    "url": "https://marcuscaiado.github.io/super-bomberman/",
+    "description": "The ultimate explosive party battle! Drop bombs, collect powerups, blast soft blocks, and battle across arenas in 60 FPS WebAssembly.",
+    "tech": [
+      "WASM EmulatorJS",
+      "Hudson Soft",
+      "Arena Battle"
+    ],
+    "badgeClass": "btn-bomberman"
   }
 ]
