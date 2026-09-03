@@ -362,7 +362,8 @@
           font-weight: 900;
           letter-spacing: 0.5px;
           user-select: none;
-          animation: dopamineScorePop 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          animation: dopamineScorePop 0.62s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          will-change: transform, opacity;
         }
         .dopamine-score-popup.bright-plus {
           background: linear-gradient(135deg, #00f5ff 0%, #05ffa1 35%, #ffd166 70%, #ff007f 100%);
@@ -382,9 +383,9 @@
           background: transparent !important;
         }
         @keyframes dopamineScorePop {
-          0% { transform: translate(-50%, 0) scale(1.45); opacity: 0; }
-          15% { transform: translate(-50%, -10px) scale(1.0); opacity: 1; }
-          75% { transform: translate(-50%, -38px) scale(0.95); opacity: 1; }
+          0% { transform: translate(-50%, 0) scale(1.4); opacity: 0; }
+          18% { transform: translate(-50%, -10px) scale(1.0); opacity: 1; }
+          72% { transform: translate(-50%, -36px) scale(0.98); opacity: 1; }
           100% { transform: translate(-50%, -50px) scale(0.85); opacity: 0; }
         }
       `;
@@ -447,26 +448,91 @@
     ensureVisualJuiceDOM();
   }
 
+  // Helper: Convert internal canvas coordinates (e.g. 600x800 game canvas) to true client viewport pixels
+  function canvasToClient(canvasX, canvasY, canvasEl) {
+    if (!canvasEl) return { x: canvasX, y: canvasY };
+    const rect = canvasEl.getBoundingClientRect();
+    const scaleX = rect.width / (canvasEl.width || rect.width);
+    const scaleY = rect.height / (canvasEl.height || rect.height);
+    return {
+      x: rect.left + canvasX * scaleX,
+      y: rect.top + canvasY * scaleY
+    };
+  }
+
+  // Helper: Convert Three.js 3D world coordinates to client viewport pixels
+  function worldToClient(worldVec3, camera, rendererOrCanvas) {
+    if (!camera) return { x: worldVec3.x || 0, y: worldVec3.y || 0 };
+    const canvasEl = (rendererOrCanvas && rendererOrCanvas.domElement) ? rendererOrCanvas.domElement : (rendererOrCanvas || document.querySelector('canvas:not(#dopamine-confetti-canvas)'));
+    if (!canvasEl) return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const rect = canvasEl.getBoundingClientRect();
+    const p = worldVec3.clone ? worldVec3.clone() : { x: worldVec3.x, y: worldVec3.y, z: worldVec3.z || 0 };
+    if (typeof p.project === 'function') {
+      p.project(camera);
+    }
+    return {
+      x: rect.left + ((p.x + 1) / 2) * rect.width,
+      y: rect.top + ((-p.y + 1) / 2) * rect.height
+    };
+  }
+
   const DopamineJuice = {
-    // Spawns Bright + Floating Score Popup at collision/screen coordinates
-    spawnScore: function(x, y, text, streak = 1) {
+    canvasToClient,
+    worldToClient,
+
+    // Spawns Bright + Floating Score Popup with true spatial in-world projection
+    spawnScore: function(x, y, text, streak = 1, context = null) {
       ensureVisualJuiceDOM();
+      let posX = x;
+      let posY = y;
+
+      // Handle spatial projection if context or canvas is provided or auto-detected
+      if (context) {
+        if (context.is3D && context.camera) {
+          const pt = worldToClient(x, context.camera, context.canvas || context.renderer);
+          posX = pt.x;
+          posY = pt.y;
+        } else if (context.canvas || context instanceof HTMLCanvasElement) {
+          const c = context.canvas || context;
+          const pt = canvasToClient(x, y, c);
+          posX = pt.x;
+          posY = pt.y;
+        }
+      } else {
+        // Auto-detect letterboxed/centered game canvas (e.g. desktop Sky Ace 1944 / Brick Breaker FX)
+        const activeCanvas = document.querySelector('#canvas-container canvas:not(#dopamine-confetti-canvas), canvas#gameCanvas');
+        if (activeCanvas) {
+          const rect = activeCanvas.getBoundingClientRect();
+          // If canvas is horizontally offset from window edge and coordinates match internal canvas resolution
+          if (rect.left > 8 && posX <= (activeCanvas.width || 1200) && posY <= (activeCanvas.height || 1200)) {
+            const pt = canvasToClient(posX, posY, activeCanvas);
+            posX = pt.x;
+            posY = pt.y;
+          }
+        }
+      }
+
+      const clientX = (posX != null && !isNaN(posX) && posX > 0 && posX < window.innerWidth) ? posX : (window.innerWidth / 2);
+      const clientY = (posY != null && !isNaN(posY) && posY > 0 && posY < window.innerHeight) ? posY : (window.innerHeight * 0.4);
+
       const popup = document.createElement('div');
       popup.className = 'dopamine-score-popup bright-plus';
-
-      const posX = (x != null && !isNaN(x) && x > 0 && x < window.innerWidth) ? x : (window.innerWidth / 2);
-      const posY = (y != null && !isNaN(y) && y > 0 && y < window.innerHeight) ? y : (window.innerHeight * 0.4);
-
-      popup.style.left = `${posX}px`;
-      popup.style.top = `${posY}px`;
+      popup.style.left = `${clientX}px`;
+      popup.style.top = `${clientY}px`;
 
       // Scale fontSize with streak / combo
-      const fontSize = Math.min(36, 20 + Math.floor(streak * 2));
+      const fontSize = Math.min(38, 20 + Math.floor(streak * 2));
       popup.style.fontSize = `${fontSize}px`;
       popup.textContent = typeof text === 'number' ? `+${text}` : text;
 
       document.body.appendChild(popup);
-      setTimeout(() => popup.remove(), 680);
+      setTimeout(() => popup.remove(), 650);
+    },
+
+    // Dedicated 3D Three.js spatial score projection
+    spawn3DScore: function(worldVec3, camera, text, streak = 1, rendererOrCanvas = null) {
+      const pt = worldToClient(worldVec3, camera, rendererOrCanvas);
+      this.spawnScore(pt.x, pt.y, text, streak);
     },
 
     // Explodes Quad-Color / Rainbow confetti

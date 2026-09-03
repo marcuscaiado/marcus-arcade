@@ -175,23 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   loopConfetti();
 
-  // Dopamine Level Tracker
-  let hubDopamine = 120;
-  function addDopamine(amount = 50) {
-    hubDopamine += amount;
-    const fill = document.getElementById('hub-dopamine-fill');
-    const badge = document.getElementById('hub-dopamine-badge');
-    if (fill) {
-      const pct = Math.min(100, Math.round((hubDopamine % 300) / 3));
-      fill.style.width = `${pct}%`;
-    }
-    if (badge) {
-      const lvl = Math.floor(hubDopamine / 300) + 1;
-      const names = ['LVL 1: CHILL', 'LVL 2: HIGH DOPAMINE', 'LVL 3: MÁXIMA SEROTONINA ⚡🌈'];
-      badge.textContent = names[Math.min(lvl - 1, names.length - 1)];
-    }
-  }
-
   // Real Live World Records Hub Engine
   const GIST_RAW_URL = 'https://gist.githubusercontent.com/marcuscaiado/a238a8db5b064579413c7a54aba6c840/raw/marcus-arcade-leaderboard.json';
 
@@ -302,7 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       playDopamineChime();
       explodeConfetti(window.innerWidth / 2, window.innerHeight * 0.35, 60);
-      addDopamine(80);
       hubLbModal.style.display = 'flex';
       renderWorldRecords();
     });
@@ -326,14 +308,12 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', (e) => {
       playDopamineChime();
       explodeConfetti(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 50);
-      addDopamine(100);
     });
   });
 
   document.querySelectorAll('.filter-btn').forEach(el => {
     el.addEventListener('click', () => {
       playBubblePop();
-      addDopamine(20);
     });
   });
 });

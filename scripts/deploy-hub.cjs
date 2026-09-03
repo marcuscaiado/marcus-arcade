@@ -15,10 +15,13 @@ function copyFolderSync(from, to) {
   });
 }
 
+console.log('📦 Building marcus-arcade bundle...');
+execSync('node ./node_modules/vite/bin/vite.js build', { stdio: 'inherit' });
+
 execSync('git add -A', { stdio: 'inherit' });
 const masterStatus = execSync('git status -s', { encoding: 'utf8' }).trim();
 if (masterStatus) {
-  execSync('git commit -m "feat(balance): add arcade-difficulty system and DDA test suite"', { stdio: 'inherit' });
+  execSync('git commit -m "refactor(ui): remove serotonin dopamine badge from header deck"', { stdio: 'inherit' });
   execSync('git push origin master', { stdio: 'inherit' });
 }
 
