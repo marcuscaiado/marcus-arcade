@@ -16,8 +16,11 @@ function copyFolderSync(from, to) {
 }
 
 execSync('git add -A', { stdio: 'inherit' });
-execSync('git commit -m "feat(balance): add arcade-difficulty system and DDA test suite"', { stdio: 'inherit' });
-execSync('git push origin master', { stdio: 'inherit' });
+const masterStatus = execSync('git status -s', { encoding: 'utf8' }).trim();
+if (masterStatus) {
+  execSync('git commit -m "feat(balance): add arcade-difficulty system and DDA test suite"', { stdio: 'inherit' });
+  execSync('git push origin master', { stdio: 'inherit' });
+}
 
 const tempDist = path.resolve('../.temp-dist-marcus-arcade');
 if (fs.existsSync(tempDist)) fs.rmSync(tempDist, { recursive: true, force: true });
