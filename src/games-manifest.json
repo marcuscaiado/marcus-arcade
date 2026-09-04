@@ -374,5 +374,200 @@
       "Open World"
     ],
     "badgeClass": "btn-gta"
+  },
+  {
+    "id": "classic-doom",
+    "name": "Classic DOOM",
+    "icon": "🔥",
+    "category": "action",
+    "unit": "KILLS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/https://marcuscaiado.github.io/classic-doom/",
+    "description": "The father of FPS! Rip and tear through phobos base with shotgun, chainsaw, rocket launcher and BFG9000 in 60 FPS WebAssembly.",
+    "tech": [
+      "WASM EmulatorJS",
+      "id Software",
+      "FPS 60 FPS"
+    ],
+    "badgeClass": "btn-doom"
+  },
+  {
+    "id": "classic-pacman",
+    "name": "Pac-Man (1980 Classic Arcade)",
+    "icon": "🟡",
+    "category": "retro",
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/pacman/index.html",
+    "description": "The immortal 1980 Namco arcade classic! Chomp dots, dodge Blinky, Pinky, Inky & Clyde, grab Power Pellets and rack up high scores.",
+    "tech": [
+      "Canvas 2D",
+      "Namco 1980",
+      "Authentic Sound"
+    ],
+    "badgeClass": "btn-pacman"
+  },
+  {
+    "id": "sonic1",
+    "name": "Sonic The Hedgehog",
+    "icon": "🦔",
+    "category": "retro",
+    "unit": "RINGS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/sonic1/index.html",
+    "description": "Sega's supersonic blue blur! Blast through Green Hill Zone, collect gold rings and defeat Dr. Robotnik in 60 FPS WebAssembly.",
+    "tech": [
+      "WASM Sega Genesis",
+      "Sonic Team",
+      "60 FPS"
+    ],
+    "badgeClass": "btn-sonic"
+  },
+  {
+    "id": "sonic2",
+    "name": "Sonic The Hedgehog 2",
+    "icon": "🦊",
+    "category": "retro",
+    "unit": "RINGS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/sonic2/index.html",
+    "description": "The peak of 16-bit speed! Introducing Tails, the legendary Spin Dash Turbo, Chemical Plant Zone, and Super Sonic.",
+    "tech": [
+      "WASM Sega Genesis",
+      "Spin Dash",
+      "Sonic & Tails"
+    ],
+    "badgeClass": "btn-sonic2"
+  },
+  {
+    "id": "fzero",
+    "name": "F-Zero",
+    "icon": "🏎️",
+    "category": "retro",
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/fzero/index.html",
+    "description": "Nintendo's groundbreaking 1990 futuristic 400+ km/h Mode-7 hovercraft racer with Captain Falcon & the Blue Falcon.",
+    "tech": [
+      "WASM SNES Mode-7",
+      "Nintendo EAD",
+      "60 FPS"
+    ],
+    "badgeClass": "btn-fzero"
+  },
+  {
+    "id": "mk2",
+    "name": "Mortal Kombat II",
+    "icon": "🐉",
+    "category": "action",
+    "unit": "WINS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/mk2/index.html",
+    "description": "Midway's legendary arcade fighting sensation! Scorpion, Sub-Zero, Liu Kang, Shang Tsung, brutal Fatalities & Babalities.",
+    "tech": [
+      "WASM Sega Genesis",
+      "Midway Arcade",
+      "Fatalities"
+    ],
+    "badgeClass": "btn-mk2"
+  },
+  {
+    "id": "megaman2",
+    "name": "Mega Man 2",
+    "icon": "🤖",
+    "category": "retro",
+    "unit": "BOSSES",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/megaman2/index.html",
+    "description": "Capcom's 8-bit platforming masterpiece! 8 Robot Masters, Metal Blade, Dr. Wily's Castle and the greatest NES soundtrack ever.",
+    "tech": [
+      "WASM NES",
+      "Capcom 1988",
+      "Chiptune Classic"
+    ],
+    "badgeClass": "btn-megaman"
+  },
+  {
+    "id": "outrun",
+    "name": "OutRun",
+    "icon": "🌴",
+    "category": "retro",
+    "unit": "CHECKPOINTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/outrun/index.html",
+    "description": "Yu Suzuki's ultimate arcade driving fantasy! Cruise in the red Ferrari Testarossa with Magical Sound Shower on the radio.",
+    "tech": [
+      "WASM Sega Genesis",
+      "Yu Suzuki",
+      "Synthwave Classic"
+    ],
+    "badgeClass": "btn-outrun"
+  },
+  {
+    "id": "sor2",
+    "name": "Streets of Rage 2",
+    "icon": "💥",
+    "category": "action",
+    "unit": "KO",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/sor2/index.html",
+    "description": "The crowned king of 90s beat-'em-ups! Axel, Blaze, Skate and Max brawl to Yuzo Koshiro's ground-shaking club house soundtrack.",
+    "tech": [
+      "WASM Sega Genesis",
+      "Yuzo Koshiro",
+      "4 Brawlers"
+    ],
+    "badgeClass": "btn-sor2"
+  },
+  {
+    "id": "topgear",
+    "name": "Top Gear",
+    "icon": "🏁",
+    "category": "retro",
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/topgear/index.html",
+    "description": "The sacred arcade racing holy grail! Hit the Nitro boost, screech around hairpin turns and blast Barry Leitch's immortal chiptune beats.",
+    "tech": [
+      "WASM SNES",
+      "Gremlin Graphics",
+      "Nitro Turbo"
+    ],
+    "badgeClass": "btn-topgear"
+  },
+  {
+    "id": "castlevania4",
+    "name": "Super Castlevania IV",
+    "icon": "🦇",
+    "category": "action",
+    "unit": "HEARTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/castlevania4/index.html",
+    "description": "Konami's gothic 16-bit tour de force! 8-way directional whip swinging, rotating rooms, Mode-7 chandeliers and Dracula's legions.",
+    "tech": [
+      "WASM SNES",
+      "Konami 1991",
+      "8-Way Whip"
+    ],
+    "badgeClass": "btn-castlevania"
+  },
+  {
+    "id": "mslug",
+    "name": "Metal Slug (1996)",
+    "icon": "💥",
+    "category": "action",
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/mslug/index.html",
+    "description": "The immortal SNK Neo-Geo arcade run-and-gun! Blast General Morden's rebel forces with SV-001 tank, heavy machine gun, rocket launcher and rescue POWs.",
+    "tech": [
+      "WASM Neo-Geo",
+      "SNK Arcade",
+      "SV-001 Tank"
+    ],
+    "badgeClass": "btn-mslug"
+  },
+  {
+    "id": "mslugx",
+    "name": "Metal Slug X",
+    "icon": "💣",
+    "category": "action",
+    "unit": "PTS",
+    "url": "https://marcuscaiado.github.io/nopex-arcade/games/mslugx/index.html",
+    "description": "The super-upgraded Neo-Geo definitive edition! Laser guns, Iron Lizard, Super Grenades, alien invaders, mummies, and zero slowdowns at silky 60 FPS.",
+    "tech": [
+      "WASM Neo-Geo",
+      "SNK Arcade",
+      "Definitive Edition"
+    ],
+    "badgeClass": "btn-mslugx"
   }
 ]
